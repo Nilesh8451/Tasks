@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Margin</title>
+
+    <style>
+      .margin {
+        margin-top: 10px;
+        margin-right: 20px;
+        margin-bottom: 30px;
+        margin-left: 40px;
+      }
+
+      .marginone {
+        margin: 10px 20px 30px 40px;
+      }
+
+      .marginDivOne {
+        border: 1px solid red;
+        margin-left: 50px;
+      }
+
+      p.ex1 {
+        margin-left: inherit;
+      }
+
+      .marginDivTwo {
+        border: 1px solid red;
+        width: 400px;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="margin">This is Para</p>
+    <p class="marginone">This is Para</p>
+
+    <div class="marginDivTwo">
+      <p class="ex2">This Div has an auto margin .</p>
+    </div>
+    <br />
+
+    <div class="marginDivOne">
+      <p class="ex1">This paragraph has an inherited left margin.</p>
+    </div>
+  </body>
+</html>

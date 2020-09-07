@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div p {
+        color: red;
+      }
+
+      div > p {
+        text-transform: uppercase;
+      }
+
+      div + p {
+        font-size: 40px;
+      }
+
+      div ~ p {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>This is para</p>
+      <p>This is para2</p>
+      <a><p>This is inside para</p></a>
+    </div>
+
+    <p>This is para3</p>
+    <a>This is some code</a>
+    <p>This is para4</p>
+  </body>
+</html>

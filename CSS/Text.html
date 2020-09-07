@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .div1 > h1 {
+        text-align: center;
+      }
+
+      .div1 > h2 {
+        text-align: left;
+      }
+
+      .div1 > h3 {
+        text-align: right;
+      }
+
+      .fdiv {
+        border: 1px solid black;
+        padding: 10px;
+        width: 200px;
+        height: 200px;
+        text-align: justify;
+      }
+
+      .fdiv::first-line {
+        color: red;
+      }
+
+      .sdiv {
+        width: 50%;
+        height: 200px;
+        background-color: lightgray;
+      }
+
+      .sdiv > p {
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      .tdiv > h2 {
+        text-decoration: overline;
+        text-transform: capitalize;
+        text-indent: 10px;
+        line-height: 5; /* space between lines */
+      }
+
+      .tdiv > h3 {
+        text-decoration: line-through;
+        text-transform: lowercase;
+        letter-spacing: 1rem;
+      }
+
+      .tdiv > h4 {
+        text-transform: uppercase;
+        text-decoration: underline;
+        word-spacing: 10px;
+      }
+
+      .paradiv {
+        text-shadow: 2px 2px red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1">
+      <h1>Heading 1 (center)</h1>
+      <h2>Heading 2 (left)</h2>
+      <h3>Heading 3 (right)</h3>
+    </div>
+
+    <div class="fdiv">
+      In my younger and more vulnerable years my father gave me some advice that
+      I've been turning over in my mind ever since. 'Whenever you feel like
+      criticizing anyone,' he told me, 'just remember that all the people in
+      this world haven't had the advantages that you've had.'
+    </div>
+    <hr />
+
+    <div class="sdiv">
+      <p>This is text</p>
+    </div>
+
+    <div class="tdiv">
+      <h2>This is Heading</h2>
+      <h3>This is Heading</h3>
+      <h4>This is Heading</h4>
+    </div>
+
+    <br />
+
+    <p class="paradiv">This is para</p>
+  </body>
+</html>

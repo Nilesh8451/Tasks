@@ -1,0 +1,24 @@
+.myparaone {
+    font-size: 20px;
+}
+
+.colorVal {
+    background-color: rgb(10, 120, 30);
+}
+
+.backPro {
+    background-color: green;
+    opacity: 0.7;
+}
+
+.backProImage {
+    width: 500px;
+    height: 500px;
+    /* background-color: blue;
+    background-image: url("dog.jpg");
+    background-repeat: no-repeat;
+    background-position: right top; */
+    background: blue url("dog.jpg") no-repeat right top;
+    /* Short Hand */
+    background-attachment: scroll;
+}
