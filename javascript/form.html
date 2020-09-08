@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validate</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script src="validateForm.js" defer></script>
+    <style>
+      form span {
+        color: red;
+      }
+      .col {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row row-cols-md-2">
+        <div class="col">
+          <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Instructions!</h4>
+            <p>Name must be min 2 char long and max 40 char long</p>
+
+            <p>
+              Department must be between computer, information technology,
+              civil, mechanical
+            </p>
+            <p>Your birth Year must be before 2000</p>
+
+            <p class="mb-0">Password must be min 6 char long</p>
+          </div>
+        </div>
+        <div class="col">
+          <form action="" onsubmit="return validateMe(event);">
+            <div class="form-group">
+              <label for="inputEmail1">Your Name <span>*</span> </label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputName"
+                name="name"
+              />
+              <span id="nameSpan"></span>
+            </div>
+            <div class="form-group">
+              <label for="inputDepart">Department <span>*</span></label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputDepart"
+                name="department"
+              />
+              <span id="departSpan"></span>
+            </div>
+            <div class="form-group">
+              <label for="inputAge">Birth Date <span>*</span></label>
+              <input
+                type="date"
+                class="form-control"
+                id="inputAge"
+                name="birth-date"
+              />
+              <span id="ageSpan"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail1">Email address <span>*</span></label>
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail"
+                name="emailid"
+              />
+              <span id="emailSpan"></span>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword1">Password <span>*</span></label>
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword"
+                name="password"
+              />
+              <span id="passwordSpan"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="myBtn">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- onclick="validateMe(event);" -->

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <style>
+      .dv {
+        padding: 10px;
+        border: 1px solid gray;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container dv">First Row</div>
+    <div class="container-fluid dv">This is Row</div>
+
+    <div class="container-sm dv">100% wide until small breakpoint</div>
+    <div class="container-md dv">100% wide until medium breakpoint</div>
+    <div class="container-lg dv">100% wide until large breakpoint</div>
+    <div class="container-xl dv">100% wide until extra large breakpoint</div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm dv">One of three columns</div>
+        <div class="col-sm dv">One of three columns</div>
+        <div class="col-sm dv">One of three columns</div>
+      </div>
+    </div>
+
+    <br />
+    <hr />
+
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-2 dv">1 of 3</div>
+        <div class="col-md-auto dv">Variable width content</div>
+        <div class="col col-lg-2 dv">3 of 3</div>
+      </div>
+
+      <div class="row">
+        <div class="col dv">1 of 3</div>
+        <div class="col-md-auto dv">Variable width content</div>
+        <div class="col col-lg-2 dv">3 of 3</div>
+      </div>
+    </div>
+
+    <br />
+    <hr />
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 dv">col-sm-8</div>
+        <div class="col-sm-4 dv">col-sm-4</div>
+      </div>
+      <div class="row">
+        <div class="col-sm dv">col-sm</div>
+        <div class="col-sm dv">col-sm</div>
+        <div class="col-sm dv">col-sm</div>
+      </div>
+    </div>
+
+    <br />
+    <hr />
+
+    <div class="container">
+      <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+      <div class="row">
+        <div class="col-md-8 dv">.col-md-8</div>
+        <div class="col-6 col-md-4 dv">.col-6 .col-md-4</div>
+      </div>
+
+      <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+      <div class="row">
+        <div class="col-6 col-md-4 dv">.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4 dv">.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4 dv">.col-6 .col-md-4</div>
+      </div>
+
+      <!-- Columns are always 50% wide, on mobile and desktop -->
+      <div class="row">
+        <div class="col-6 dv">.col-6</div>
+        <div class="col-6 dv">.col-6</div>
+      </div>
+    </div>
+
+    <hr />
+    <br />
+
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+        <div class="col dv">Column</div>
+        <div class="col dv">Column</div>
+        <div class="col dv">Column</div>
+        <div class="col dv">Column</div>
+      </div>
+    </div>
+
+    <hr />
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="col order-last dv">First in DOM, ordered last</div>
+        <div class="col dv">Second in DOM, unordered</div>
+        <div class="col order-first dv">Third in DOM, ordered first</div>
+      </div>
+    </div>
+
+    <hr />
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 dv">.col-md-4</div>
+        <div class="col-md-4 offset-md-4 dv">.col-md-4 .offset-md-4</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 offset-md-3 dv">.col-md-3 .offset-md-3</div>
+        <div class="col-md-3 offset-md-3 dv">.col-md-3 .offset-md-3</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 offset-md-3 dv">.col-md-6 .offset-md-3</div>
+      </div>
+    </div>
+  </body>
+</html>
