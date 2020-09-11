@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="jqEffect.js" defer></script>
+    <style>
+      #myDiv01 {
+        width: 100px;
+        height: 100px;
+        margin-left: 40px;
+        display: none;
+        background-color: orange;
+        margin-bottom: 30px;
+        margin-top: 50px;
+      }
+      #myDiv02 {
+        width: 100px;
+        height: 100px;
+        margin-left: 40px;
+        display: none;
+        margin-top: 20px;
+        background-color: blue;
+      }
+      button {
+        min-width: 100px;
+        height: 30px;
+        background-color: transparent;
+        border: 1px solid blue;
+        padding: 3px;
+      }
+
+      button:hover {
+        background-color: orange;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <p>This is Para</p>
+    <button id="to">Toggle</button>
+
+    <h2>This is Para</h2>
+    <button id="fI">FadeIn</button>
+    <button id="fO">FadeOut</button>
+    <button id="fT">FadeToggle</button>
+    <button id="fTo">FadeTo</button>
+    <div id="myDiv01"></div>
+    <div id="myDiv02"></div>
+  </body>
+</html>

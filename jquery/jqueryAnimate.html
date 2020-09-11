@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="jqAnimate.js" defer></script>
+    <style>
+      #myDiv01 {
+        width: 20%;
+        height: 100px;
+        position: relative;
+        background-color: orange;
+        margin-bottom: 30px;
+        margin-top: 50px;
+      }
+
+      button {
+        width: 20%;
+        margin-right: 10px;
+        background-color: transparent;
+        border: 1px solid blue;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+
+      button:hover {
+        background-color: orange;
+        color: white;
+      }
+
+      .btnDiv {
+        width: max-content;
+        padding: 30px;
+        margin: auto;
+        border: 1px solid olivedrab;
+      }
+
+      @media only screen and (max-width: 500px) {
+        button {
+          width: 70%;
+          margin-top: 20px;
+          margin-left: 12%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btnDiv">
+      <button id="ex1">Ex1</button>
+      <button id="ex2">Ex2</button>
+      <button id="ex3">Ex3</button>
+      <button id="ex4">Ex4</button>
+      <button id="ex5">Ex5</button>
+    </div>
+    <div id="myDiv01"></div>
+  </body>
+</html>

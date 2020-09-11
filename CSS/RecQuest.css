@@ -1,0 +1,28 @@
+.div {
+    font-size: 20px;
+    clear: both;
+}
+
+.iDiv1 {
+    float: left;
+    font-size: 2em;
+}
+
+.iDiv2 {
+    clear: left;
+    font-size: 2rem;
+}
+
+.footer {
+    width: 90%;
+    /* padding: 50px; */
+    height: 100px;
+    background-color: red;
+}
+
+.footerChild {
+    width: 80%;
+    height: 60%;
+    position: absolute;
+    background-color: yellow;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="jqSlide.js" defer></script>
+    <style>
+      #myDiv01 {
+        width: 50%;
+        height: 100px;
+        margin: auto;
+        display: none;
+        background-color: orange;
+        margin-bottom: 30px;
+        margin-top: 50px;
+      }
+
+      button {
+        min-width: 20%;
+        margin-left: 10px;
+        margin-right: 10px;
+        height: 30px;
+        background-color: transparent;
+        border: 1px solid blue;
+        padding: 4px;
+      }
+
+      button:hover {
+        background-color: orange;
+        color: white;
+      }
+
+      .btnDiv {
+        width: fit-content;
+        padding: 30px;
+        margin: auto;
+        border: 1px solid olivedrab;
+      }
+
+      @media only screen and (max-width: 500px) {
+        button {
+          width: 70%;
+          margin-top: 20px;
+          margin-left: 12%;
+        }
+        #myDiv01 {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btnDiv">
+      <button id="sD">SlideDown</button>
+      <button id="sU">SlideUP</button>
+      <button id="sT">SlideToggle</button>
+    </div>
+    <div id="myDiv01"></div>
+  </body>
+</html>
