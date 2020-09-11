@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="domAnimation.js"></script>
+    <style>
+      #container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: gray;
+      }
+      #animate {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: blue;
+      }
+      #animate2 {
+        width: 50px;
+        height: 50px;
+        right: 0;
+        position: absolute;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <p><button onclick="myMove()">Click Me</button></p>
+
+    <div id="container">
+      <div id="animate"></div>
+      <div id="animate2"></div>
+    </div>
+  </body>
+</html>

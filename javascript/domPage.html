@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="domManup.js" defer></script>
+    <style>
+      ul {
+        list-style: none;
+        height: 300px;
+        overflow-y: auto;
+      }
+      ul li {
+        width: 200px;
+        padding: 20px;
+        color: white;
+        border: 1px solid black;
+        text-align: center;
+        background-color: rgb(100, 100, 100);
+      }
+
+      ul li:hover {
+        color: black;
+        background-color: white;
+      }
+
+      button {
+        padding: 20px;
+        margin-left: 10px;
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>DOM MANIPULATION</h2>
+    <div class="firstDiv">
+      <p id="paraFD">This is Paragraph</p>
+    </div>
+
+    <ul>
+      <li>Item1</li>
+      <li>Item2</li>
+      <li>Item3</li>
+      <li>Item4</li>
+    </ul>
+    <button>Add New Item at bottom</button>
+    <button id="nextBtn">Add New Item at top</button>
+  </body>
+</html>
