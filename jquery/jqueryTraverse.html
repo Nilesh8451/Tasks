@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="jqTraverse.js" defer></script>
+    <title>Document</title>
+    <style>
+      .ancestors * {
+        display: block;
+        border: 2px solid lightgrey;
+        color: lightgrey;
+        padding: 5px;
+        margin: 15px;
+      }
+
+      #Sibling,
+      #Sibling * {
+        display: block;
+        border: 2px solid lightgrey;
+        /* color: lightgrey; */
+        padding: 5px;
+        margin: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ancestors">
+      <div style="width: 500px">
+        div great-grandparent
+        <ul>
+          ul grandparent
+          <li>
+            li direct parent
+            <span>span</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div id="Sibling">
+      <p>This is para</p>
+      <h2>This is h2 header</h2>
+      <h3>This is h3 header</h3>
+      <h4>This is h4 header</h4>
+      <h5>This is h5 header</h5>
+
+      <p>This is para</p>
+    </div>
+  </body>
+</html>

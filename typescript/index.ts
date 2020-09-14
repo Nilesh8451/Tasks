@@ -25,6 +25,8 @@ let list2: Array<number> = [1, 2, 3, 4];
 // Tuple with fixed size and fixed order along with type
 let list3: [string, number] = ["Nilesh", 20];
 
+list3.push(1);
+
 let list4: any[] = [1, 2, "Nilesh"];
 
 // Enum
@@ -119,3 +121,117 @@ let mynameis = {
 };
 
 mynameis.greet();
+
+//
+
+// Interface
+
+function fullname(person: { firstname: string; lastname: string }) {
+  console.log(person.firstname, person.lastname);
+}
+let p = {
+  firstname: "Nilesh",
+  lastname: "Chavan",
+};
+
+fullname(p);
+
+//
+
+interface Person {
+  firstname: string;
+  lastname: string;
+}
+
+function fullname1(person: Person) {
+  console.log(person.firstname, person.lastname);
+}
+let p1 = {
+  firstname: "Nilesh",
+  lastname: "Chavan",
+};
+
+fullname1(p1);
+
+// Ex2
+
+var student: Person = {
+  firstname: "Kamesh",
+  lastname: "Bhise",
+};
+
+console.log("Student First Name: ", student.firstname);
+console.log("Student Last Name: ", student.lastname);
+
+// Ex3
+
+type MyStudents = Person[];
+
+var rekhaStudents: MyStudents;
+rekhaStudents.push({
+  firstname: "Omkar",
+  lastname: "Pise",
+});
+
+//
+
+//Class
+
+class Employee {
+  employeeName: string;
+  private employeePassword: string;
+  protected employeeSalary: number;
+
+  constructor(name: string, pass: string, sal: number) {
+    this.employeeName = name;
+    this.employeePassword = pass;
+    this.employeeSalary = sal;
+  }
+
+  greet() {
+    console.log(
+      `Good Morning ${this.employeeName} your pass is ${this.employeePassword}`
+    );
+  }
+}
+
+var myEmp1 = new Employee("Nilesh", "Nil", 400000);
+myEmp1.greet();
+
+class Manager extends Employee {
+  constructor(managerName: string, manaPass: string, sal: number) {
+    super(managerName, manaPass, sal);
+  }
+
+  delegateWork() {
+    console.log(`Manager delegating tasks`);
+    console.log(`Manager Salary is ${this.employeeSalary}`);
+    // console.log(`Manager Pass ${this.employeePassword}`); //This will give error
+  }
+}
+
+var myMan1 = new Manager("Tushar", "Tus", 100000);
+myMan1.greet();
+myMan1.delegateWork();
+
+//
+
+interface Greetable {
+  name: string;
+}
+interface Printable {
+  print(): void;
+}
+
+class User implements Greetable, Printable {
+  constructor(public name: string, private age: number) {}
+
+  print() {
+    console.log(`${this.name} your age is ${this.age}`);
+  }
+}
+
+var myUser = new User("nilesh", 20);
+myUser.print();
+
+//
