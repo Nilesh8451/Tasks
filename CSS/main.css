@@ -18,7 +18,7 @@
     background-image: url("dog.jpg");
     background-repeat: no-repeat;
     background-position: right top; */
-    background: blue url("dog.jpg") no-repeat right top;
+    background: gray url("dog.jpg") no-repeat right top;
     /* Short Hand */
     background-attachment: scroll;
 }

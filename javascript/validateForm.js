@@ -3,12 +3,14 @@ const dept = document.getElementById("inputDepart");
 const age = document.getElementById("inputAge");
 const email = document.getElementById("inputEmail");
 const password = document.getElementById("inputPassword");
+const rate = document.getElementById("inputRate");
 
 const nameSpan = document.getElementById("nameSpan");
 const deptSpan = document.getElementById("departSpan");
 const ageSpan = document.getElementById("ageSpan");
 const emailSpan = document.getElementById("emailSpan");
 const passwordSpan = document.getElementById("passwordSpan");
+const rateSpan = document.getElementById("rateSpan");
 
 const deptName = ["computer", "information technology", "civil", "mechanical"];
 var nameError = 0;
@@ -16,6 +18,7 @@ var emailError = 0;
 var passwordError = 0;
 var ageError = 0;
 var deptError = 0;
+var rateError = 0;
 
 function validateMe(e) {
   //   e.preventDefault();
@@ -39,6 +42,14 @@ function validateMe(e) {
       deptSpan.textContent = "";
       deptError = 0;
     }
+  }
+
+  if (parseInt(rate.value) < 3) {
+    rateError = 1;
+    rateSpan.textContent = "Your skills are to low for this Form";
+  } else {
+    rateError = 0;
+    rateSpan.textContent = "";
   }
 
   if (age.value !== "") {
@@ -81,7 +92,15 @@ function validateMe(e) {
     passwordSpan.textContent = "";
     passwordError = 0;
   }
-  if (ageError || passwordError || nameError || emailError || deptError) {
+
+  if (
+    ageError ||
+    passwordError ||
+    nameError ||
+    emailError ||
+    deptError ||
+    rateError
+  ) {
     return false;
   }
 }

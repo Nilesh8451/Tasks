@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var myname = "Nilesh Chavan";
 var myname1 = "Tushar";
 var isAdmin = true;
@@ -54,7 +54,7 @@ var myVar = {
     name: "Nilesh",
     greet: function () {
         console.log("Welcome to Neosoft " + this.name);
-    }
+    },
 };
 myVar.greet();
 //
@@ -95,7 +95,7 @@ var mynameis = {
     name: "nilesh",
     greet: function () {
         console.log("Welcome " + this.name);
-    }
+    },
 };
 mynameis.greet();
 //
@@ -105,7 +105,7 @@ function fullname(person) {
 }
 var p = {
     firstname: "Nilesh",
-    lastname: "Chavan"
+    lastname: "Chavan",
 };
 fullname(p);
 function fullname1(person) {
@@ -113,20 +113,20 @@ function fullname1(person) {
 }
 var p1 = {
     firstname: "Nilesh",
-    lastname: "Chavan"
+    lastname: "Chavan",
 };
 fullname1(p1);
 // Ex2
 var student = {
     firstname: "Kamesh",
-    lastname: "Bhise"
+    lastname: "Bhise",
 };
 console.log("Student First Name: ", student.firstname);
 console.log("Student Last Name: ", student.lastname);
 var rekhaStudents;
 rekhaStudents.push({
     firstname: "Omkar",
-    lastname: "Pise"
+    lastname: "Pise",
 });
 //
 //Class

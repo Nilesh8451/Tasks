@@ -1,5 +1,5 @@
-const sound = document.getElementById("audioId");
+// const sound = document.getElementById("audioId");
 
-window.addEventListener("click", () => {
-  sound.play();
-});
+// window.addEventListener("click", () => {
+//   sound.play();
+// });

@@ -18,12 +18,39 @@
       .col {
         margin-top: 10px;
       }
+      .row {
+        margin-top: 30px;
+      }
+
+      footer {
+        margin-top: 5%;
+        display: block;
+        padding: 20px;
+        background-color: #eeeeee;
+      }
+
+      nav {
+        display: block;
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 500;
+        background-color: #eeeeee;
+      }
+
+      @media screen and (max-width: 500px) {
+        footer {
+          margin-top: 8%;
+        }
+      }
     </style>
   </head>
   <body>
+    <nav>
+      <div class="text-center">Neosoft</div>
+    </nav>
     <div class="container">
-      <div class="row row-cols-md-2">
-        <div class="col">
+      <div class="row">
+        <div class="col-md-6">
           <div class="alert alert-warning" role="alert">
             <h4 class="alert-heading">Instructions!</h4>
             <p>Name must be min 2 char long and max 40 char long</p>
@@ -32,12 +59,15 @@
               Department must be between computer, information technology,
               civil, mechanical
             </p>
+
+            <p>Your Skill level must be greater than 2</p>
+
             <p>Your birth Year must be before 2000</p>
 
             <p class="mb-0">Password must be min 6 char long</p>
           </div>
         </div>
-        <div class="col">
+        <div class="col-md-6">
           <form action="" onsubmit="return validateMe(event);">
             <div class="form-group">
               <label for="inputEmail1">Your Name <span>*</span> </label>
@@ -59,6 +89,19 @@
               />
               <span id="departSpan"></span>
             </div>
+
+            <div class="form-group">
+              <label for="inputRate">Rate Yourself <span>*</span></label>
+              <select class="form-control" id="inputRate" name="inputRate">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <span id="rateSpan"></span>
+            </div>
+
             <div class="form-group">
               <label for="inputAge">Birth Date <span>*</span></label>
               <input
@@ -98,6 +141,12 @@
         </div>
       </div>
     </div>
+    <footer class="page-footer">
+      <div class="text-center">
+        © 2020 Copyright:
+        <a href="https://www.neosofttech.com/">NeoSoft Tech</a>
+      </div>
+    </footer>
   </body>
 </html>
 
