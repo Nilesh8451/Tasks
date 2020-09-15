@@ -4,6 +4,7 @@ const age = document.getElementById("inputAge");
 const email = document.getElementById("inputEmail");
 const password = document.getElementById("inputPassword");
 const rate = document.getElementById("inputRate");
+const check = document.getElementById("inputCheck");
 
 const nameSpan = document.getElementById("nameSpan");
 const deptSpan = document.getElementById("departSpan");
@@ -11,6 +12,7 @@ const ageSpan = document.getElementById("ageSpan");
 const emailSpan = document.getElementById("emailSpan");
 const passwordSpan = document.getElementById("passwordSpan");
 const rateSpan = document.getElementById("rateSpan");
+const checkSpan = document.getElementById("inputCheckSpan");
 
 const deptName = ["computer", "information technology", "civil", "mechanical"];
 var nameError = 0;
@@ -19,6 +21,7 @@ var passwordError = 0;
 var ageError = 0;
 var deptError = 0;
 var rateError = 0;
+var checkError = 0;
 
 function validateMe(e) {
   //   e.preventDefault();
@@ -93,13 +96,23 @@ function validateMe(e) {
     passwordError = 0;
   }
 
+  // console.log(check.checked);
+  if (!check.checked) {
+    checkError = 1;
+    checkSpan.textContent = "Please Accept Terms and Condition";
+  } else {
+    checkError = 0;
+    checkSpan.textContent = "";
+  }
+
   if (
     ageError ||
     passwordError ||
     nameError ||
     emailError ||
     deptError ||
-    rateError
+    rateError ||
+    checkError
   ) {
     return false;
   }
