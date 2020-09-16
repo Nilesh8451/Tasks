@@ -37,6 +37,15 @@
         background-color: #eeeeee;
       }
 
+      .form-group {
+        margin-bottom: 30px;
+      }
+
+      h3 {
+        text-align: center;
+        font-size: 20px;
+      }
+
       @media screen and (max-width: 500px) {
         footer {
           margin-top: 8%;
@@ -46,23 +55,23 @@
   </head>
   <body>
     <nav>
-      <div class="text-center">Neosoft</div>
+      <div>Neosoft</div>
     </nav>
     <div class="container">
+      <h3>Neosoft Employee Registration Form</h3>
       <div class="row">
         <div class="col-md-6">
           <div class="alert alert-warning" role="alert">
             <h4 class="alert-heading">Instructions!</h4>
             <p>Name must be min 2 char long and max 40 char long</p>
 
-            <p>
-              Department must be between computer, information technology,
-              civil, mechanical
-            </p>
-
-            <p>Your Skill level must be greater than 2</p>
+            <p>Department must be between javascript, php, dot net, java</p>
 
             <p>Your birth Year must be before 2000</p>
+
+            <p>Profile Image must be less than 1mb</p>
+
+            <p>Your Skill level must be greater than 2</p>
 
             <p class="mb-0">Password must be min 6 char long</p>
           </div>
@@ -91,15 +100,32 @@
             </div>
 
             <div class="form-group">
-              <label for="inputRate">Rate Yourself <span>*</span></label>
-              <select class="form-control" id="inputRate" name="inputRate">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-              <span id="rateSpan"></span>
+              <label for="inputGender">Gender <span>*</span></label> <br />
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inputGender"
+                  id="inputGender"
+                  value="male"
+                />
+                <label class="form-check-label" for="inputGender"> Male </label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inputGender"
+                  id="inputGender2"
+                  value="female"
+                />
+                <label class="form-check-label" for="inputGender">
+                  Female
+                </label>
+              </div>
+              <br />
+              <span id="genderSpan"></span>
             </div>
 
             <div class="form-group">
@@ -114,6 +140,35 @@
             </div>
 
             <div class="form-group">
+              <label for="inputImage">Profile Image <span>*</span></label>
+              <div class="custom-file">
+                <input
+                  accept=".jpg,.png"
+                  type="file"
+                  name="profileImage"
+                  class="custom-file-input"
+                  id="profilePhoto"
+                />
+                <label class="custom-file-label" for="profilePhoto"
+                  >Choose file...</label
+                >
+              </div>
+              <span id="imageSpan"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="inputRate">Rate Yourself <span>*</span></label>
+              <select class="form-control" id="inputRate" name="inputRate">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <span id="rateSpan"></span>
+            </div>
+
+            <div class="form-group">
               <label for="inputEmail1">Email address <span>*</span></label>
               <input
                 type="email"
@@ -123,6 +178,18 @@
               />
               <span id="emailSpan"></span>
             </div>
+
+            <div class="form-group">
+              <label for="inputNumber">Phone Number <span>*</span></label>
+              <input
+                type="tel"
+                class="form-control"
+                id="inputNumber"
+                name="phoneNo"
+              />
+              <span id="numberSpan"></span>
+            </div>
+
             <div class="form-group">
               <label for="inputPassword1">Password <span>*</span></label>
               <input
