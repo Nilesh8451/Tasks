@@ -6,11 +6,24 @@
     <title>Position</title>
 
     <style>
+      * {
+        margin-top: 0px;
+      }
+      span {
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: aliceblue;
+      }
       div.static {
         position: static;
         border: 3px solid #73ad21;
       }
       div.relative {
+        display: inline-block;
         position: relative;
         left: 30px;
         border: 3px solid #73ad21;
@@ -26,7 +39,7 @@
 
       .absolutepos > .relativepos {
         position: relative;
-        width: 400px;
+        max-width: 400px;
         height: 200px;
         border: 3px solid #73ad21;
       }
@@ -52,6 +65,8 @@
 
   <body>
     <div>
+      <span>Position Implementation</span>
+
       <h2>position: static;</h2>
 
       <p>

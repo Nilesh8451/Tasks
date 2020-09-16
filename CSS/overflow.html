@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      div,
+      span.title {
+        margin-left: 20px;
+      }
+      span.Header {
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: aliceblue;
+      }
       .fdiv {
         background-color: yellow;
         width: 200px;
@@ -36,27 +48,38 @@
         border: 1px dotted black;
         overflow: auto;
       }
+
+      .title {
+        margin-top: 10px;
+        font-size: 19px;
+        font-weight: 600;
+      }
     </style>
   </head>
   <body>
+    <span class="Header">Overflow Property</span>
+    <span class="title">Overflow Visible</span>
     <div class="fdiv">
       You can use the overflow property when you want to have better control of
       the layout. The overflow property specifies what happens if content
       overflows an element's box.
     </div>
     <br />
+
     <div class="sdiv">
       You can use the overflow property when you want to have better control of
       the layout. The overflow property specifies what happens if content
       overflows an element's box.
     </div>
     <br />
+    <span class="title">Overflow Scroll</span>
     <div class="tdiv">
       You can use the overflow property when you want to have better control of
       the layout. The overflow property specifies what happens if content
       overflows an element's box.
     </div>
     <br />
+    <span class="title">Overflow Auto</span>
     <div class="fodiv">
       You can use the overflow property when you want to have better control of
       the layout. The overflow property specifies what happens if content

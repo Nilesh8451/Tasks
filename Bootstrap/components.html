@@ -20,9 +20,34 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      span.Header {
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: aliceblue;
+      }
+
+      span.title {
+        display: block;
+        font-size: 19px;
+        font-weight: 600;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
+    <span class="Header">BootStrap Components</span>
     <div class="container">
+      <span class="title">Alert Component</span>
       <div class="alert alert-danger" role="alert">
         A simple danger <a href="#" class="alert-link">an example link</a>.
         alert—check it out!
@@ -61,7 +86,8 @@
     <!-- Badge -->
 
     <div class="container">
-      <h2>This is h2 tag<span class="badge badge-primary">Primary</span></h2>
+      <span class="title">Badge Component</span>
+      <h2>This is h2 tag <span class="badge badge-primary"> Primary</span></h2>
       <span class="badge badge-warning">Warning</span>
       <a href="#" class="badge badge-primary">Primary</a>
     </div>
@@ -71,6 +97,7 @@
 
     <!-- BreadCrumb -->
     <div class="container">
+      <span class="title">BreadCrumb</span>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -86,6 +113,7 @@
     <!-- Buttons -->
 
     <div class="container">
+      <span class="title">Button Component</span>
       <button type="button" class="btn btn-primary">Primary</button>
       <button type="button" class="btn btn-warning">warn</button>
       <button type="button" class="btn btn-outline-warning">warn</button>
@@ -99,7 +127,8 @@
       </button>
 
       <hr />
-      <div class="btn-group" role="group" aria-label="Basic example">
+
+      <div class="btn-group" role="group">
         <button type="button" class="btn btn-secondary">Left</button>
         <button type="button" class="btn btn-secondary">Middle</button>
         <button type="button" class="btn btn-secondary">Right</button>

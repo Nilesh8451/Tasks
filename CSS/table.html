@@ -5,14 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      * {
+        margin-top: 0px;
+      }
+      span {
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: aliceblue;
+      }
       table {
+        margin-left: 30px;
         border-collapse: collapse;
+      }
+
+      h2 {
+        margin-left: 30px;
       }
 
       table,
       td,
       th {
         border: 1px solid black;
+        padding: 3px;
+        text-align: center;
       }
 
       tr:nth-child(even):hover {
@@ -21,6 +39,7 @@
     </style>
   </head>
   <body>
+    <span>Table Implementation</span>
     <h2>Let the borders collapse:</h2>
 
     <table>

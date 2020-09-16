@@ -12,7 +12,7 @@
 }
 
 .backProImage {
-    width: 500px;
+    max-width: 500px;
     height: 500px;
     /* background-color: blue;
     background-image: url("dog.jpg");

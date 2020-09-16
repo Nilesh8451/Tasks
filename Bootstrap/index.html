@@ -11,16 +11,38 @@
       crossorigin="anonymous"
     />
     <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      span.Header {
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: aliceblue;
+      }
       .dv {
         padding: 10px;
         border: 1px solid gray;
         margin-bottom: 10px;
       }
+
+      .title {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 19px;
+        font-weight: 600;
+      }
     </style>
   </head>
   <body>
-    <div class="container dv">First Row</div>
-    <div class="container-fluid dv">This is Row</div>
+    <span class="Header">Bootstrap Grid System</span>
+
+    <div class="container dv">Container Div</div>
+    <div class="container-fluid dv">Container Fluid Div</div>
 
     <div class="container-sm dv">100% wide until small breakpoint</div>
     <div class="container-md dv">100% wide until medium breakpoint</div>
@@ -28,6 +50,7 @@
     <div class="container-xl dv">100% wide until extra large breakpoint</div>
 
     <div class="container">
+      <span class="title">Break at sm breakpoint</span>
       <div class="row">
         <div class="col-sm dv">One of three columns</div>
         <div class="col-sm dv">One of three columns</div>
@@ -39,6 +62,7 @@
     <hr />
 
     <div class="container">
+      <span class="title">Break at sm breakpoint</span>
       <div class="row">
         <div class="col-sm-8 dv">col-sm-8</div>
         <div class="col-sm-4 dv">col-sm-4</div>
@@ -54,6 +78,7 @@
     <hr />
 
     <div class="container">
+      <span class="title">Break at medium breakpoint</span>
       <div class="row">
         <div class="col-md-8 dv">.col-md-8</div>
         <div class="col-6 col-md-4 dv">.col-6 .col-md-4</div>
@@ -75,6 +100,7 @@
     <br />
 
     <div class="container">
+      <span class="title">Breaks at md sm </span>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
         <div class="col dv">Column</div>
         <div class="col dv">Column</div>
@@ -86,13 +112,13 @@
     <hr />
     <br />
     <div class="container">
+      <span class="title">Ordering</span>
       <div class="row">
         <div class="col order-last dv">First in DOM, ordered last</div>
         <div class="col dv">Second in DOM, unordered</div>
         <div class="col order-first dv">Third in DOM, ordered first</div>
       </div>
     </div>
-
     <hr />
     <br />
   </body>
