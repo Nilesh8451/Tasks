@@ -3,6 +3,7 @@ const dept = document.getElementById("inputDepart");
 const age = document.getElementById("inputAge");
 const email = document.getElementById("inputEmail");
 const password = document.getElementById("inputPassword");
+const cPassword = document.getElementById("inputPassword1");
 const rate = document.getElementById("inputRate");
 const check = document.getElementById("inputCheck");
 const gender = document.getElementsByName("inputGender");
@@ -14,6 +15,7 @@ const deptSpan = document.getElementById("departSpan");
 const ageSpan = document.getElementById("ageSpan");
 const emailSpan = document.getElementById("emailSpan");
 const passwordSpan = document.getElementById("passwordSpan");
+const cPasswordSpan = document.getElementById("cPasswordSpan");
 const rateSpan = document.getElementById("rateSpan");
 const checkSpan = document.getElementById("inputCheckSpan");
 const genderSpan = document.getElementById("genderSpan");
@@ -112,7 +114,7 @@ function validateMe(e) {
 
   // *******************Email Validation*****************************
   if (email.value !== "") {
-    regex = /^[A-Za-z0-9+_.-]+@(.+)$/;
+    regex = /^[A-Za-z0-9+_.-]+@(.+)(\.\w+)$/;
     if (!regex.test(email.value)) {
       //   console.log("Enter valid Email address");
       emailSpan.textContent = "Please Enter Valid Email address";
@@ -153,6 +155,14 @@ function validateMe(e) {
   } else {
     passwordSpan.textContent = "";
     passwordError = 0;
+  }
+
+  if (cPassword.value === "" || cPassword.value != password.value) {
+    passwordError = 1;
+    cPasswordSpan.textContent = "Password and Confirm Password is not matching";
+  } else {
+    passwordError = 0;
+    cPasswordSpan.textContent = "";
   }
 
   // *******************Terms and Condition Validation*****************************
