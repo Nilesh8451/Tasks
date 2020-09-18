@@ -1,0 +1,99 @@
+/**
+
+* @desc: This file contain all css styling related to Blog Posts
+
+*/
+
+.blogPost {
+  /* background-color: aquamarine; */
+  font-family: "Roboto Slab", serif;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+  align-items: center;
+  margin-top: -40px;
+}
+
+.blogPost > h1 {
+  font-size: 45px;
+  opacity: 0.8;
+  font-weight: 500;
+  margin-top: 45px;
+  margin-bottom: 20px;
+}
+
+.blogCard {
+  max-width: 280px;
+  margin-bottom: 25px;
+  margin-left: 21px;
+  margin-right: 21px;
+  /* background-color: wheat; */
+}
+
+.blogCard > h3 {
+  opacity: 0.6;
+  margin-top: 15px;
+}
+
+.blogCard > p {
+  font-size: 15px;
+  opacity: 0.6;
+  line-height: 1.4rem;
+  margin-top: 18px;
+}
+
+.blogCard > .cardTitle {
+  font-size: 17px;
+  margin-top: 11px;
+}
+
+.blogCard > img {
+  width: 100%;
+}
+
+.blogCard:hover .cardTitle {
+  color: #a8ce3a;
+}
+
+.blogCard > button {
+  padding: 10px;
+  background-color: white;
+  /* background-color: #A8CE3A; */
+  border: 1px solid #a8ce3a;
+  color: #a8ce3a;
+  margin-top: 20px;
+  text-align: center;
+  cursor: pointer;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.blogCard > button:hover {
+  background-color: #a8ce3a;
+  color: white;
+}
+
+.blogCardsDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 680px) {
+  .blogPost > h1 {
+    font-size: 30px;
+  }
+  .blogPost {
+    min-height: 100vh;
+  }
+
+  .blogCard {
+    margin-top: -20px;
+  }
+
+  .blogCard2 {
+    margin-top: 25px;
+  }
+}

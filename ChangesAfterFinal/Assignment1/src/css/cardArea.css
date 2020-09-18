@@ -1,0 +1,132 @@
+/**
+
+* @desc: This file contain all css styling related to Cards Section
+
+*/
+
+.cardArea {
+  min-height: 115vh;
+  background-image: url("../../assets/images/sea.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: pink; */
+  font-family: "Roboto Slab";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardArea pre {
+  opacity: 0.8;
+  font-family: "Roboto Slab";
+  font-size: 15px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+.CardAreaHeader p {
+  opacity: 0.8;
+  font-family: "Roboto Slab";
+  font-size: 15px;
+  margin-top: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: 600;
+  text-align: center;
+  display: none;
+  margin-bottom: 20px;
+}
+
+.cardAreaCard > p {
+  text-align: center;
+  line-height: 1.6rem;
+  margin-top: 20px;
+  opacity: 0.7;
+  font-size: 15px;
+}
+
+.cardArea .cardAreaCard {
+  max-width: 350px;
+  padding: 30px;
+  border-radius: 4px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #feffff;
+}
+
+.cardAreaCard > img {
+  width: 70px;
+  margin-top: 10px;
+}
+
+.cardAreaCard h2 {
+  opacity: 0.6;
+  margin-top: 10px;
+}
+
+.CardAreaHeader > pre {
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.cardArea > .cardAreaCardsDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.cardAreaCard > button {
+  width: 220px;
+  background-color: #bfe240;
+  padding: 10px;
+  padding-top: 10px;
+  font-family: "Roboto Slab";
+  padding-bottom: 10px;
+  /* margin-top: -20px; */
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.cardAreaCard > button:hover {
+  background-color: #a6c82a;
+}
+
+.cardAreaCard > button > i {
+  font-size: 13px;
+  margin-left: 2px;
+}
+
+@media only screen and (max-width: 850px) {
+  .cardAreaCardsDiv {
+    flex-direction: column;
+  }
+  .CardAreaHeader > pre {
+    display: none;
+  }
+  .CardAreaHeader > p {
+    display: block;
+  }
+  .cardArea .cardAreaCard pre {
+    white-space: pre-wrap;
+    white-space: pre-line;
+    word-wrap: break-word;
+  }
+  .cardArea .cardAreaCard {
+    margin-bottom: 30px;
+  }
+  .cardAreaCard > p {
+    font-size: 14px;
+  }
+  .cardAreaCard h2 {
+    font-size: 18px;
+  }
+}

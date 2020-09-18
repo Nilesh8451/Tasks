@@ -1,0 +1,9 @@
+.myCarousel {
+  margin-top: 30px;
+  width: 100%;
+  position: relative;
+  top: -30px;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 600px) {}

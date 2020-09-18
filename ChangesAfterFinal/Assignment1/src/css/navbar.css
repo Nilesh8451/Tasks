@@ -1,0 +1,178 @@
+* {
+  margin: 0px;
+}
+
+/**
+
+* @desc: This file contain all css styling related to Navbar
+
+
+*/
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  /* background-color: yellow; */
+  background-color: #ffffff;
+}
+
+nav > img {
+  width: 330px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+nav .navbarRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  /* background-color: red; */
+}
+
+nav .navbarRightSecDiv ul {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+}
+
+nav .navbarRightSecDiv ul > li {
+  font-family: "Roboto Slab", serif;
+  opacity: 0.7 !important;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+nav .navbarRightSecDiv ul > li:hover {
+  color: green;
+}
+
+.navbarRightFirstDiv {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.navbarRightFirstDiv > div {
+  position: relative;
+  z-index: 1;
+}
+
+.navbarRightFirstDiv > div > .searchIcon {
+  position: absolute;
+  right: 2px;
+  opacity: 0.6;
+  top: 0;
+  padding: 5px;
+  z-index: 2;
+}
+
+.navbarRightFirstDiv > div > input {
+  /* border: none; */
+  padding: 5px;
+  width: 200px;
+  margin-right: 2px;
+  outline: none;
+  opacity: 0.8;
+}
+
+.navbarRightFirstDiv > span {
+  font-family: "Satisfy", cursive;
+  font-size: 19px;
+  margin-right: 20px;
+}
+
+.navbarRightSecDivMenu {
+  display: none;
+}
+
+.displayNavContent {
+  width: 100%;
+  display: block;
+  /* background-color: red; */
+}
+
+nav .displayNavContent ul {
+  margin-left: -20px;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+}
+
+nav .displayNavContent ul > li {
+  display: block;
+  font-family: "Roboto Slab", serif;
+  opacity: 0.7 !important;
+  font-size: 14px;
+  cursor: pointer;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-bottom: 0.2px solid gray;
+  /* background-color: pink; */
+  /* margin-left: -20px; */
+}
+
+nav .displayNavContent ul > li:hover {
+  color: green;
+}
+
+.navbarRightFirstDiv,
+.displayNavContent {
+  opacity: 0.7;
+}
+
+.navbarRightSecDiv {
+  opacity: 0.7;
+}
+
+@media only screen and (max-width: 900px) {
+  nav > img {
+    width: 230px;
+    margin-right: 10px;
+    object-fit: contain;
+  }
+  nav .navbarRightSecDiv ul > li {
+    display: inline-block;
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 776px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbarRightSecDiv {
+    display: none;
+  }
+  .navbarRightSecDivMenu {
+    display: block;
+  }
+  .navbarRightSecDivMenu img {
+    width: 25px;
+    cursor: pointer;
+    padding: 5px;
+    object-fit: contain;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navbarRightFirstDiv {
+    display: none;
+  }
+  .navbarRight {
+    width: 100%;
+    display: flex;
+    margin-right: 20px;
+  }
+  .navbarRightSecDivMenu img {
+    width: 25px;
+    cursor: pointer;
+    padding: 5px;
+    object-fit: contain;
+  }
+}

@@ -1,0 +1,10 @@
+.working {
+    /* min-height: 86vh; */
+    margin-top: 20px;
+    margin-bottom: 50px;
+    /* background-color: aqua; */
+}
+
+.working>img {
+    width: 100%;
+}

@@ -1,0 +1,22 @@
+.webEnd {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.webEnd > p {
+  margin: 4px;
+  font-weight: 600;
+  opacity: 0.4;
+  font-size: 14px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 500px) {
+  .webEnd > p {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 12px;
+  }
+}
