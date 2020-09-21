@@ -11,7 +11,7 @@
   background-repeat: no-repeat;
 }
 
-.headerFooter > .playButtonDiv {
+.headerFooter>.playButtonDiv {
   width: 120px;
   height: 80px;
   margin-left: 150px;
@@ -20,13 +20,13 @@
   background-color: #a5bc52;
 }
 
-.headerFooter > .playButtonDiv > .icon {
+.headerFooter>.playButtonDiv>.icon {
   line-height: 80px;
   font-size: 27px;
   color: white;
 }
 
-.headerFooter > .headerFooterContent {
+.headerFooter>.headerFooterContent {
   display: flex;
   width: 35%;
   height: 100%;
@@ -35,11 +35,11 @@
   flex-direction: column;
 }
 
-.headerFooter > .headerFooterContent > div {
+.headerFooter>.headerFooterContent>div {
   margin-bottom: 40px;
 }
 
-.headerFooter > .headerFooterContent > div > p {
+.headerFooter>.headerFooterContent>div>p {
   font-size: 30px;
   line-height: 40px;
   text-align: center;
@@ -47,7 +47,7 @@
   font-weight: 390;
 }
 
-.headerFooter > .headerFooterContent > button {
+.headerFooter>.headerFooterContent>button {
   width: 220px;
   background-color: #c1e04b;
   padding: 12px;
@@ -63,11 +63,11 @@
   color: white;
 }
 
-.headerFooter > .headerFooterContent > button:hover {
+.headerFooter>.headerFooterContent>button:hover {
   background-color: #8da81f;
 }
 
-.headerFooter > .headerFooterContent > button > div {
+.headerFooter>.headerFooterContent>button>div {
   border: 2px solid white;
   width: 15px;
   margin-left: 5px;
@@ -80,26 +80,26 @@
   .headerFooter {
     flex-direction: column;
   }
-  .headerFooter > .playButtonDiv {
+  .headerFooter>.playButtonDiv {
     margin-left: 0px;
     margin-top: 50px;
     width: 100px;
     height: 70px;
   }
-  .headerFooter > .playButtonDiv > .icon {
+  .headerFooter>.playButtonDiv>.icon {
     line-height: 70px;
   }
-  .headerFooter > .headerFooterContent {
+  .headerFooter>.headerFooterContent {
     width: 60%;
   }
-  .headerFooter > .headerFooterContent > div > p {
+  .headerFooter>.headerFooterContent>div>p {
     color: black;
     font-size: 25px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .headerFooter > .headerFooterContent {
+  .headerFooter>.headerFooterContent {
     width: 80%;
   }
 }

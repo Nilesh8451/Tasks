@@ -18,7 +18,7 @@ nav {
   background-color: #ffffff;
 }
 
-nav > img {
+nav>img {
   width: 330px;
   margin-right: 10px;
   object-fit: contain;
@@ -38,7 +38,7 @@ nav .navbarRightSecDiv ul {
   flex-direction: row;
 }
 
-nav .navbarRightSecDiv ul > li {
+nav .navbarRightSecDiv ul>li {
   font-family: "Roboto Slab", serif;
   opacity: 0.7 !important;
   cursor: pointer;
@@ -48,7 +48,7 @@ nav .navbarRightSecDiv ul > li {
   margin-left: 20px;
 }
 
-nav .navbarRightSecDiv ul > li:hover {
+nav .navbarRightSecDiv ul>li:hover {
   color: green;
 }
 
@@ -57,12 +57,12 @@ nav .navbarRightSecDiv ul > li:hover {
   display: flex;
 }
 
-.navbarRightFirstDiv > div {
+.navbarRightFirstDiv>div {
   position: relative;
   z-index: 1;
 }
 
-.navbarRightFirstDiv > div > .searchIcon {
+.navbarRightFirstDiv>div>.searchIcon {
   position: absolute;
   right: 2px;
   opacity: 0.6;
@@ -71,7 +71,7 @@ nav .navbarRightSecDiv ul > li:hover {
   z-index: 2;
 }
 
-.navbarRightFirstDiv > div > input {
+.navbarRightFirstDiv>div>input {
   /* border: none; */
   padding: 5px;
   width: 200px;
@@ -80,7 +80,7 @@ nav .navbarRightSecDiv ul > li:hover {
   opacity: 0.8;
 }
 
-.navbarRightFirstDiv > span {
+.navbarRightFirstDiv>span {
   font-family: "Satisfy", cursive;
   font-size: 19px;
   margin-right: 20px;
@@ -103,7 +103,7 @@ nav .displayNavContent ul {
   flex-direction: column;
 }
 
-nav .displayNavContent ul > li {
+nav .displayNavContent ul>li {
   display: block;
   font-family: "Roboto Slab", serif;
   opacity: 0.7 !important;
@@ -116,12 +116,11 @@ nav .displayNavContent ul > li {
   /* margin-left: -20px; */
 }
 
-nav .displayNavContent ul > li:hover {
+nav .displayNavContent ul>li:hover {
   color: green;
 }
 
-.navbarRightFirstDiv,
-.displayNavContent {
+.navbarRightFirstDiv, .displayNavContent {
   opacity: 0.7;
 }
 
@@ -130,12 +129,12 @@ nav .displayNavContent ul > li:hover {
 }
 
 @media only screen and (max-width: 900px) {
-  nav > img {
+  nav>img {
     width: 230px;
     margin-right: 10px;
     object-fit: contain;
   }
-  nav .navbarRightSecDiv ul > li {
+  nav .navbarRightSecDiv ul>li {
     display: inline-block;
     margin-left: 10px;
   }

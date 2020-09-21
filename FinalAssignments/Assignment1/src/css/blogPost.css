@@ -14,7 +14,7 @@
   margin-top: -40px;
 }
 
-.blogPost > h1 {
+.blogPost>h1 {
   font-size: 45px;
   opacity: 0.8;
   font-weight: 500;
@@ -30,24 +30,24 @@
   /* background-color: wheat; */
 }
 
-.blogCard > h3 {
+.blogCard>h3 {
   opacity: 0.6;
   margin-top: 15px;
 }
 
-.blogCard > p {
+.blogCard>p {
   font-size: 15px;
   opacity: 0.6;
   line-height: 1.4rem;
   margin-top: 18px;
 }
 
-.blogCard > .cardTitle {
+.blogCard>.cardTitle {
   font-size: 17px;
   margin-top: 11px;
 }
 
-.blogCard > img {
+.blogCard>img {
   width: 100%;
 }
 
@@ -55,7 +55,7 @@
   color: #a8ce3a;
 }
 
-.blogCard > button {
+.blogCard>button {
   padding: 10px;
   background-color: white;
   /* background-color: #A8CE3A; */
@@ -68,7 +68,7 @@
   padding-right: 30px;
 }
 
-.blogCard > button:hover {
+.blogCard>button:hover {
   background-color: #a8ce3a;
   color: white;
 }
@@ -82,17 +82,15 @@
 }
 
 @media screen and (max-width: 680px) {
-  .blogPost > h1 {
+  .blogPost>h1 {
     font-size: 30px;
   }
   .blogPost {
     min-height: 100vh;
   }
-
   .blogCard {
     margin-top: -20px;
   }
-
   .blogCard2 {
     margin-top: 25px;
   }

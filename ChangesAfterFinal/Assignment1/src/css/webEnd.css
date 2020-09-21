@@ -4,7 +4,7 @@
   flex-wrap: wrap;
 }
 
-.webEnd > p {
+.webEnd>p {
   margin: 4px;
   font-weight: 600;
   opacity: 0.4;
@@ -14,7 +14,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  .webEnd > p {
+  .webEnd>p {
     margin-left: 10px;
     margin-right: 10px;
     font-size: 12px;

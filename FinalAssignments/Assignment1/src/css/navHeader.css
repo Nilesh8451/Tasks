@@ -10,12 +10,12 @@
   padding: 8px;
 }
 
-.navHeader > img {
+.navHeader>img {
   height: 70px;
   object-fit: contain;
 }
 
-.navHeader > p {
+.navHeader>p {
   margin-left: 20px;
   margin-right: 20px;
   opacity: 0.8;
@@ -23,31 +23,31 @@
   color: white;
 }
 
-.navHeader > button {
+.navHeader>button {
   height: 40px;
   padding-left: 30px;
   cursor: pointer;
   padding-right: 30px;
-  background-color: transparent;
+  background-color: #70726b;
   border: 2px solid white;
   border-radius: 5px;
   color: white;
 }
 
-.navHeader > button:hover {
-  background-color: #70726b;
+.navHeader>button:hover {
+  background-color: transparent;
 }
 
 @media only screen and (max-width: 700px) {
-  .navHeader > img {
+  .navHeader>img {
     margin-top: 7px;
   }
-  .navHeader > p {
+  .navHeader>p {
     text-align: center;
     font-size: 20px;
     margin-top: 10px;
   }
-  .navHeader > button {
+  .navHeader>button {
     margin-top: 12px;
     margin-bottom: 7px;
   }

@@ -64,7 +64,7 @@ function validateMe(e) {
   // *******************Gender Validation*****************************
   if (!gender[0].checked && !gender[1].checked) {
     genderError = 1;
-    genderSpan.textContent = "Please select you gender";
+    genderSpan.textContent = "Please select your gender";
   } else {
     genderError = 0;
     genderSpan.textContent = "";

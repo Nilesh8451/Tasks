@@ -2,8 +2,7 @@ const btn = document.getElementById("navIcon");
 const ulCon = document.getElementById("navbarContent");
 
 /**
- * @desc: This listen to the navbar icon to show navbar content and to hide tha content
-
+ * @desc: This listen to the ckick on navbar icon to toggle the navbar content
  */
 
 btn.addEventListener("click", () => {
