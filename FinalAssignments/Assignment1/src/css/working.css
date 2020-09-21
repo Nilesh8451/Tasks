@@ -8,3 +8,9 @@
 .working>img {
     width: 100%;
 }
+
+@media screen and (max-width:500px) {
+    .working>img {
+        height: 40vh;
+    }
+}

@@ -127,43 +127,43 @@
 						<div class="name_fileds">
 							<label>First Name</label>
 							<input name="firstname" type="text" />
-							<span id="firstnameSpan"></span> 
+							<span id="firstnameSpan" style="visibility: hidden;">Firstname is Compulsary</span> 
 						</div>
 						<div class="name_fileds">
 							<label>Last Name</label>
 							<input name="lastname" type="text" /> 
-							<span id='lastnameSpan'></span> 
+							<span id='lastnameSpan' style="visibility: hidden;">Lastname is Compulsary</span> 
 						</div>
 					</li>
 					<li class="fileds">
 						<div class="phone_fileds">
 							<label>Phone No</label>
 							<input name="phone" type="text" /> 
-							<span id='phoneSpan'></span> 
+							<span id='phoneSpan' style="visibility: hidden;">Phone No is Compulsary</span> 
 						</div>
 						<div class="phone_fileds">
 							<label>Office No</label>
 							<input name="office" type="text" />
-							<span id='officeSpan'></span> 
+							<span id='officeSpan' style="visibility: hidden;">Office number is compulsary</span> 
 						</div>
 					</li>					
 					<li class="fileds">
 						<div class="email_fileds">
 							<label>Email</label>
 							<input name="email" type="text" /> 
-							<span id="emailSpan"></span> 
+							<span id="emailSpan" style="visibility: hidden;">Email is Compulsary</span> 
 						</div>
 						<div class="pass_fileds">
 							<label>Password</label>
 							<input name="password" type="text" /> 
-							<span id="passwordSpan"></span> 
+							<span id="passwordSpan" style="visibility: hidden;">Password is Compulsary</span> 
 						</div>
 					</li>
 					<li class="fileds">
 						<div class="pass_fileds">
 							<label>Confirm Password</label>
 							<input name="cPassword" type="text" /> 
-							<span id="cPasswordSpan"></span> 
+							<span id="cPasswordSpan" style="visibility: hidden;">Confirm Password is Compulsary</span> 
 						</div>
 							<div class="dob_fileds selectbox">
 								<label>My birthdate is</label>
@@ -253,7 +253,7 @@
 									</li>
 								
 								</ul>
-								<span id="dobSpan"></span>
+								<span id="dobSpan" style="visibility: hidden;">DOB is compulsary</span>
 							</div>
 					</li>
 					<li class="fileds">
@@ -268,7 +268,7 @@
 								<li><input type="radio" class="radio" id="residence2" name="radio" /><label class="radio-label" for="residence2">Female</label></li>
 							</ul>	<br />
 
-							<span id="radioSpan"></span> 
+							<span id="radioSpan" style="visibility: hidden;">Please Select a Gender</span> 
 						</div>
 					</li>
 					<li>
@@ -279,13 +279,14 @@
 								<li><input type="checkbox" class="checkbox" id="checkbox_sample19" name="interest[]" /> <label class="css-label" for="checkbox_sample19">Reading</label></li>
 								<li><input type="checkbox" class="checkbox" id="checkbox_sample20" name='interest[]'/> <label class="css-label" for="checkbox_sample20">Playing</label></li>
 							</ul>
-
-							<span id='interestSpan'></span> 
+								<br />
+								<br />
+							<span id='interestSpan' style="visibility: hidden;">Please select at least one interst</span> 
 						</div>
 						<div class="about_you_fileds">
 						<label>About you</label>
-						<textarea name='aboutYou'></textarea>
-						<span id='aboutYouSpan'></span> 
+						<textarea name='aboutYou'></textarea><br>
+						<span id='aboutYouSpan' style="visibility: hidden;">About You is compulsary</span> 
 						</div>						
 					</li>
 				</ul>
