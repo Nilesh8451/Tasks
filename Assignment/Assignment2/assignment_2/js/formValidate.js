@@ -381,6 +381,12 @@ function validateMe(event) {
     cPasswordSpan.style.visibility = "visible";
     cPasswordSpan.style.color = "red";
     cPasswordError = 1;
+  } else if (cPassword.value !== password.value) {
+    cPassword.style.border = "1px solid red";
+    cPasswordSpan.textContent = "Confirm Password must be same as Password";
+    cPasswordSpan.style.visibility = "visible";
+    cPasswordSpan.style.color = "red";
+    cPasswordError = 1;
   }
 
   if (month.value === "month" || day.value === "day" || year.value === "year") {
