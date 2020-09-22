@@ -3,7 +3,7 @@ const fnameSpan = document.getElementById("firstnameSpan");
 let fnameError = 1;
 
 /**
- * @description Event Listener that listens to first name input field blur event and validate the first name field. First name should be compulsary, minumum of 2 char is required, it should contain only alphabets.
+ * @description Event Listener that listens to first name input field blur event and validate the first name field. First name is compulsary field, minumum of 2 char is required, it should contain only alphabets.
  * @param {event} event The event object that fires on fname.
  * @returns {void}
  */
@@ -12,7 +12,7 @@ fname.addEventListener("blur", (event) => {
   let regex = /^[a-zA-Z]+$/;
   if (fname.value.length === 0 || fname.value.length < 3) {
     fname.style.border = "1px solid red";
-    fnameSpan.textContent = "Firstname is Compulsary and Must be min 2 char";
+    fnameSpan.textContent = "Firstname is compulsary and must be min 2 char";
     fnameSpan.style.visibility = "visible";
     fnameSpan.style.color = "red";
     fnameError = 1;
@@ -34,7 +34,7 @@ const lnameSpan = document.getElementById("lastnameSpan");
 let lnameError = 1;
 
 /**
- * @description Event Listener that listens to last name input field blur event and validate the last name field. Last name should be compulsary, minumum of 2 char is required, it should contain only alphabets.
+ * @description Event Listener that listens to last name input field blur event and validate the last name field. Last name is compulsary field, minumum of 2 char is required, it should contain only alphabets.
  * @param {event} event The event object that fires on fname
  * @returns {void}
  */
@@ -43,13 +43,13 @@ lname.addEventListener("blur", (event) => {
   let regex = /^[a-zA-Z]+$/;
   if (lname.value.length === 0 || lname.value.length < 3) {
     lname.style.border = "1px solid red";
-    lnameSpan.textContent = "Lastname is Compulsary and Must be min 2 char";
+    lnameSpan.textContent = "Lastname is compulsary and must be min 2 char";
     lnameSpan.style.visibility = "visible";
     lnameSpan.style.color = "red";
     lnameError = 1;
   } else if (!regex.test(lname.value)) {
     lname.style.border = "1px solid red";
-    lnameSpan.textContent = "Firstname should contain only alphabets";
+    lnameSpan.textContent = "Lastname should contain only alphabets";
     lnameSpan.style.visibility = "visible";
     lnameSpan.style.color = "red";
     lnameError = 1;
@@ -75,19 +75,19 @@ phone.addEventListener("blur", (event) => {
 
   if (phone.value.length === 0) {
     phone.style.border = "1px solid red";
-    phoneSpan.textContent = "Phone No is Compulsary";
+    phoneSpan.textContent = "Phone number is compulsary";
     phoneSpan.style.visibility = "visible";
     phoneSpan.style.color = "red";
     phoneError = 1;
   } else if (isNaN(phone.value)) {
     phone.style.border = "1px solid red";
-    phoneSpan.textContent = "It Should Contain Number Only";
+    phoneSpan.textContent = "It should contain number only";
     phoneSpan.style.visibility = "visible";
     phoneSpan.style.color = "red";
     phoneError = 1;
   } else if (!phone.value.match(phoneno)) {
     phone.style.border = "1px solid red";
-    phoneSpan.textContent = "Please Enter Valid Number";
+    phoneSpan.textContent = "Please enter valid number";
     phoneSpan.style.visibility = "visible";
     phoneSpan.style.color = "red";
     phoneError = 1;
@@ -103,21 +103,21 @@ const officeSpan = document.getElementById("officeSpan");
 let officeError = 0;
 
 /**
- * @description Event Listener that listens to office number input field blur event and validate the office number field. Office number field is required.
+ * @description Event Listener that listens to office number input field blur event and validate the office number field. Office number field is required and minimum of 8 digit is needed.
  * @param {event} event The event object that fires on fname
  * @returns {void}
  */
 
 office.addEventListener("blur", (event) => {
-  if (office.value.length === 0) {
+  if (office.value.length === 0 || office.value.length < 7) {
     office.style.border = "1px solid red";
-    officeSpan.textContent = "Office number is compulsary";
+    officeSpan.textContent = "Office number is compulsary and min 8 digit";
     officeSpan.style.visibility = "visible";
     officeSpan.style.color = "red";
     officeError = 1;
   } else if (isNaN(office.value)) {
     office.style.border = "1px solid red";
-    officeSpan.textContent = "It Should Contain Number Only";
+    officeSpan.textContent = "It should contain number only";
     officeSpan.style.visibility = "visible";
     officeSpan.style.color = "red";
     officeError = 1;
@@ -141,7 +141,7 @@ let emailError = 1;
 email.addEventListener("blur", (event) => {
   if (email.value.length === 0) {
     email.style.border = "1px solid red";
-    emailSpan.textContent = "Email is Compulsary";
+    emailSpan.textContent = "Email field is compulsary";
     emailSpan.style.visibility = "visible";
     emailSpan.style.color = "red";
     emailError = 1;
@@ -149,7 +149,7 @@ email.addEventListener("blur", (event) => {
     const regex = /^[A-Za-z0-9+_.-]+@(.+)(\.\w+)$/;
     if (!regex.test(email.value)) {
       email.style.border = "1px solid red";
-      emailSpan.textContent = "Please Enter Valid Email";
+      emailSpan.textContent = "Please enter valid Email";
       emailSpan.style.visibility = "visible";
       emailSpan.style.color = "red";
       emailError = 1;
@@ -166,16 +166,16 @@ const passwordSpan = document.getElementById("passwordSpan");
 let passwordError = 1;
 
 /**
- * @description Event Listener that listens to password input field blur event and validate the password field. That must be compulsary, Characters must be in the range 8 to 12 with no special character.
+ * @description Event Listener that listens to password input field blur event and validate the password field. That must be compulsary, Characters must be in the range 8 to 12 with no special characters and it should be only alphanumeric char.
  * @param {event} event The event object that fires on fname
  * @returns {void}
  */
 
 password.addEventListener("blur", (event) => {
-  const regex = /^[A-Za-z0-9+]+$/;
+  const regex = /^[A-Za-z0-9_]+$/;
   if (password.value.length === 0) {
     password.style.border = "1px solid red";
-    passwordSpan.textContent = "Password is Compulsary";
+    passwordSpan.textContent = "Password is compulsary";
     passwordSpan.style.visibility = "visible";
     passwordSpan.style.color = "red";
     passwordError = 1;
@@ -211,13 +211,13 @@ let cPasswordError = 1;
 cPassword.addEventListener("blur", (event) => {
   if (cPassword.value.length === 0) {
     cPassword.style.border = "1px solid red";
-    cPasswordSpan.textContent = "Confirm Password is Compulsary";
+    cPasswordSpan.textContent = "Confirm password is compulsary";
     cPasswordSpan.style.visibility = "visible";
     cPasswordSpan.style.color = "red";
     cPasswordError = 1;
   } else if (cPassword.value !== password.value) {
     cPassword.style.border = "1px solid red";
-    cPasswordSpan.textContent = "Should be Exactly same as Password";
+    cPasswordSpan.textContent = "Should be exactly same as Password";
     cPasswordSpan.style.visibility = "visible";
     cPasswordSpan.style.color = "red";
     cPasswordError = 1;
@@ -244,7 +244,7 @@ let dobError = 0;
 
 dobUl.addEventListener("click", (event) => {
   if (month.value !== "month" && day.value !== "day" && year.value !== "year") {
-    dobSpan.textContent = "";
+    dobSpan.style.visibility = "hidden";
     dobError = 0;
 
     let age;
@@ -285,7 +285,7 @@ const aboutYouSpan = document.getElementById("aboutYouSpan");
 let aboutError = 1;
 
 /**
- * @description Event Listener that listens to about you input field blur event and validate the about you input field. It is compulsary.
+ * @description Event Listener that listens to about you input field blur event and validate the about you input field. It is compulsary field.
  * @param {event} event The event object that fires on fname
  * @returns {void}
  */
@@ -316,7 +316,7 @@ function validateMe(event) {
 
   if (fname.value.length === 0) {
     fname.style.border = "1px solid red";
-    fnameSpan.textContent = "Firstname is Compulsary";
+    fnameSpan.textContent = "Firstname field is compulsary";
     fnameSpan.style.visibility = "visible";
     fnameSpan.style.color = "red";
     fnameError = 1;
@@ -324,7 +324,7 @@ function validateMe(event) {
 
   if (lname.value.length === 0) {
     lname.style.border = "1px solid red";
-    lnameSpan.textContent = "Lastname is Compulsary";
+    lnameSpan.textContent = "Lastname field is compulsary";
     lnameSpan.style.visibility = "visible";
     lnameSpan.style.color = "red";
     lnameError = 1;
@@ -332,7 +332,7 @@ function validateMe(event) {
 
   if (phone.value.length === 0) {
     phone.style.border = "1px solid red";
-    phoneSpan.textContent = "Phone No is Compulsary";
+    phoneSpan.textContent = "Phone number is compulsary";
     phoneSpan.style.visibility = "visible";
     phoneSpan.style.color = "red";
     phoneError = 1;
@@ -348,7 +348,7 @@ function validateMe(event) {
 
   if (email.value.length === 0) {
     email.style.border = "1px solid red";
-    emailSpan.textContent = "Email is Compulsary";
+    emailSpan.textContent = "Email field is compulsary";
     emailSpan.style.visibility = "visible";
     emailSpan.style.color = "red";
     emailError = 1;
@@ -356,7 +356,7 @@ function validateMe(event) {
 
   if (password.value.length === 0) {
     password.style.border = "1px solid red";
-    passwordSpan.textContent = "Password is Compulsary";
+    passwordSpan.textContent = "Password field is compulsary";
     passwordSpan.style.visibility = "visible";
     passwordSpan.style.color = "red";
     passwordError = 1;
@@ -364,21 +364,21 @@ function validateMe(event) {
 
   if (cPassword.value.length === 0) {
     cPassword.style.border = "1px solid red";
-    cPasswordSpan.textContent = "Password is Compulsary";
+    cPasswordSpan.textContent = "Confirm Password is compulsary";
     cPasswordSpan.style.visibility = "visible";
     cPasswordSpan.style.color = "red";
     cPasswordError = 1;
   }
 
   if (month.value === "month" || day.value === "day" || year.value === "year") {
-    dobSpan.textContent = "DOB is compulsary";
+    dobSpan.textContent = "Date of birth is compulsary";
     dobSpan.style.visibility = "visible";
     dobSpan.style.color = "red";
     dobError = 1;
   }
 
   if (aboutYou.value.length === 0) {
-    aboutYouSpan.textContent = "About You is compulsary";
+    aboutYouSpan.textContent = "About You field is compulsary";
     aboutYouSpan.style.color = "red";
     aboutYouSpan.style.visibility = "visible";
     aboutYou.style.border = "1px solid red";
@@ -386,7 +386,7 @@ function validateMe(event) {
   }
 
   if (!radio[0].checked && !radio[1].checked) {
-    radioSpan.textContent = "Please Select Gender";
+    radioSpan.textContent = "Please Select a gender";
     radioSpan.style.color = "red";
     radioSpan.style.visibility = "visible";
     radioError = 1;
@@ -401,7 +401,7 @@ function validateMe(event) {
     interestSpan.style.visibility = "hidden";
     interestError = 0;
   } else {
-    interestSpan.textContent = "Please select at least one interst";
+    interestSpan.textContent = "Please select at least one type of interest";
     interestSpan.style.visibility = "visible";
     interestSpan.style.color = "red";
     interestError = 1;
