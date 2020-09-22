@@ -73,6 +73,8 @@ let phoneError = 1;
 phone.addEventListener("blur", (event) => {
   var phoneno = /^\d{10}$/;
 
+  let firstDigit = parseInt(phone.value[0]);
+
   if (phone.value.length === 0) {
     phone.style.border = "1px solid red";
     phoneSpan.textContent = "Phone number is compulsary";
@@ -88,6 +90,12 @@ phone.addEventListener("blur", (event) => {
   } else if (!phone.value.match(phoneno)) {
     phone.style.border = "1px solid red";
     phoneSpan.textContent = "Please enter valid number";
+    phoneSpan.style.visibility = "visible";
+    phoneSpan.style.color = "red";
+    phoneError = 1;
+  } else if (firstDigit < 6) {
+    phone.style.border = "1px solid red";
+    phoneSpan.textContent = "First digit of number is not valid";
     phoneSpan.style.visibility = "visible";
     phoneSpan.style.color = "red";
     phoneError = 1;
@@ -146,7 +154,7 @@ email.addEventListener("blur", (event) => {
     emailSpan.style.color = "red";
     emailError = 1;
   } else if (1) {
-    const regex = /^[A-Za-z0-9+_.-]+@(.+)(\.\w+)$/;
+    const regex = /^[A-Za-z0-9+_.-]+@(\w+)(\.\w+)$/;
     if (!regex.test(email.value)) {
       email.style.border = "1px solid red";
       emailSpan.textContent = "Please enter valid Email";
@@ -165,6 +173,10 @@ const password = document.getElementsByName("password")[0];
 const passwordSpan = document.getElementById("passwordSpan");
 let passwordError = 1;
 
+const cPassword = document.getElementsByName("cPassword")[0];
+const cPasswordSpan = document.getElementById("cPasswordSpan");
+cPassword.disabled = true;
+let cPasswordError = 1;
 /**
  * @description Event Listener that listens to password input field blur event and validate the password field. That must be compulsary, Characters must be in the range 8 to 12 with no special characters and it should be only alphanumeric char.
  * @param {event} event The event object that fires on fname
@@ -178,29 +190,29 @@ password.addEventListener("blur", (event) => {
     passwordSpan.textContent = "Password is compulsary";
     passwordSpan.style.visibility = "visible";
     passwordSpan.style.color = "red";
+    cPassword.disabled = true;
     passwordError = 1;
   } else if (password.value.length < 8 || password.value.length > 12) {
     password.style.border = "1px solid red";
     passwordSpan.textContent = "Password should be between 8 and 12 char";
     passwordSpan.style.visibility = "visible";
     passwordSpan.style.color = "red";
+    cPassword.disabled = true;
     passwordError = 1;
   } else if (!regex.test(password.value)) {
     password.style.border = "1px solid red";
     passwordSpan.textContent = "Password should contain only Alphanumeric Char";
     passwordSpan.style.visibility = "visible";
     passwordSpan.style.color = "red";
+    cPassword.disabled = true;
     passwordError = 1;
   } else {
     password.style.border = "1px solid black";
     passwordSpan.style.visibility = "hidden";
+    cPassword.disabled = false;
     passwordError = 0;
   }
 });
-
-const cPassword = document.getElementsByName("cPassword")[0];
-const cPasswordSpan = document.getElementById("cPasswordSpan");
-let cPasswordError = 1;
 
 /**
  * @description Event Listener that listens to confirm password input field blur event and validate the input field.Must be compulsary and must be same as password field.
@@ -359,6 +371,7 @@ function validateMe(event) {
     passwordSpan.textContent = "Password field is compulsary";
     passwordSpan.style.visibility = "visible";
     passwordSpan.style.color = "red";
+    cPassword.disabled = true;
     passwordError = 1;
   }
 
