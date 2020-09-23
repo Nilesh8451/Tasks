@@ -4,12 +4,12 @@ let fnameError = 1;
 
 /**
  * @author Nilesh Chavan
- * @description Event Listener that listens to first name input field blur event and validate the first name field. First name should be compulsary, minumum of 2 char is required, it should contain only alphabets.
- * @param {event} event The event object that fires on fname.
+ * @description Event Listener that listens to first name input field blur event and validate the first name field. First name field is compulsary, minumum of 2 char is required, it should contain only alphabets.
+ * @param {event} event The event object that fires on firstname input field.
  * @returns {void}
  */
 
-fname.blur(function () {
+fname.blur(function (event) {
   let regex = /^[a-zA-Z]+$/;
   if (fname.val().length === 0 || fname.val().length < 3) {
     fname.css("border", "1px solid red");
@@ -35,11 +35,11 @@ let lnameError = 1;
 /**
  * @author Nilesh Chavan
  * @description Event Listener that listens to last name input field blur event and validate the last name field. Last name should be compulsary, minumum of 2 char is required, it should contain only alphabets.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on lastname input field.
  * @returns {void}
  */
 
-lname.blur(function () {
+lname.blur(function (event) {
   let regex = /^[a-zA-Z]+$/;
 
   if (lname.val().length === 0 || lname.val().length < 3) {
@@ -66,11 +66,11 @@ let phoneError = 1;
 /**
  * @author Nilesh Chavan
  * @description Event Listener that listens to phone number input field blur event and validate the phone number field. Phone number field is required, must contain 10 digit number only.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on Phone number input field.
  * @returns {void}
  */
 
-phone.blur(function () {
+phone.blur(function (event) {
   var phoneno = /^\d{10}$/;
   let firstDigit = parseInt(phone.val()[0]);
 
@@ -89,7 +89,7 @@ phone.blur(function () {
     phoneSpan.text("Please Enter Valid Number");
     phoneSpan.css({ visibility: "visible", color: "red" });
     phoneError = 1;
-  } else if (firstDigit < 6) {
+  } else if (firstDigit < 7) {
     phone.css("border", "1px solid red");
     phoneSpan.text("First digit is not valid");
     phoneSpan.css({ visibility: "visible", color: "red" });
@@ -108,11 +108,11 @@ let officeError = 0;
 /**
  * @author Nilesh Chavan
  * @description Event Listener that listens to office number input field blur event and validate the office number field. Office number field is required.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on office number input field.
  * @returns {void}
  */
 
-office.blur(function () {
+office.blur(function (event) {
   if (office.val().length === 0 || office.val().length < 7) {
     office.css("border", "1px solid red");
     officeSpan.text("Office number is compulsary and min 8 digit");
@@ -137,11 +137,11 @@ let emailError = 1;
 /**
  * @author Nilesh Chavan
  * @description Event Listener that listens to email input field blur event and validate the email field. Email field is required, must start with alphanumeric char or underscore or dot or hiphen and then @ must be present. After that at least one char and at the end dot with one or more character
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on Email field.
  * @returns {void}
  */
 
-email.blur(function () {
+email.blur(function (event) {
   if (email.val().length === 0) {
     email.css("border", "1px solid red");
     emailSpan.text("Email is Compulsary");
@@ -174,11 +174,11 @@ let cPasswordError = 1;
 /**
  * @author Nilesh Chavan
  * @description Event Listener that listens to password input field blur event and validate the password field. That must be compulsary, Characters must be in the range 8 to 12 with no special character.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on Password input field.
  * @returns {void}
  */
 
-password.blur(function () {
+password.blur(function (event) {
   const regex = /^[A-Za-z0-9+]+$/;
   if (password.val().length === 0) {
     password.css("border", "1px solid red");
@@ -209,11 +209,11 @@ password.blur(function () {
 /**
  * @author Nilesh Chavan
  * @description Event Listener that listens to confirm password input field blur event and validate the input field.Must be compulsary and must be same as password field.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on Confirm Password input field.
  * @returns {void}
  */
 
-cPassword.blur(function () {
+cPassword.blur(function (event) {
   if (cPassword.val().length === 0) {
     cPassword.css("border", "1px solid red");
     cPasswordSpan.text("Confirm Password is Compulsary");
@@ -243,11 +243,11 @@ let dobError = 0;
 /**
  * @author Nilesh Chavan
  * @description Event Listener that listens to date of birth input field click event and validate the form. Date of birth with date, month, year required.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on Date of birth parent div.
  * @returns {void}
  */
 
-dobUl.click(function () {
+dobUl.click(function (event) {
   if (month.val() !== null && day.val() !== null && year.val() !== null) {
     dobSpan.css("visibility", "hidden");
     dobError = 0;
@@ -290,11 +290,11 @@ let aboutError = 1;
 /**
  * @author Nilesh Chavan
  * @description Event Listener that listens to about you input field blur event and validate the about you input field. It is compulsary field.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on About you text field.
  * @returns {void}
  */
 
-aboutYou.blur(function () {
+aboutYou.blur(function (event) {
   if (aboutYou.val().length === 0) {
     aboutYouSpan.text("About You is compulsary");
     aboutYouSpan.css({ visibility: "visible", color: "red" });

@@ -4,7 +4,7 @@ let fnameError = 1;
 
 /**
  * @description Event Listener that listens to first name input field blur event and validate the first name field. First name is compulsary field, minumum of 2 char is required, it should contain only alphabets.
- * @param {event} event The event object that fires on fname.
+ * @param {event} event The event object that fires on firstname input field.
  * @returns {void}
  */
 
@@ -35,7 +35,7 @@ let lnameError = 1;
 
 /**
  * @description Event Listener that listens to last name input field blur event and validate the last name field. Last name is compulsary field, minumum of 2 char is required, it should contain only alphabets.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on lastname input field.
  * @returns {void}
  */
 
@@ -66,7 +66,7 @@ let phoneError = 1;
 
 /**
  * @description Event Listener that listens to phone number input field blur event and validate the phone number field. Phone number field is required, must contain 10 digit number only.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on Phone number input field.
  * @returns {void}
  */
 
@@ -112,7 +112,7 @@ let officeError = 0;
 
 /**
  * @description Event Listener that listens to office number input field blur event and validate the office number field. Office number field is required and minimum of 8 digit is needed.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on office number input field.
  * @returns {void}
  */
 
@@ -142,7 +142,7 @@ let emailError = 1;
 
 /**
  * @description Event Listener that listens to email input field blur event and validate the email field. Email field is required, must start with alphanumeric char or underscore or dot or hiphen and then @ must be present. After that at least one char and at the end dot with one or more character
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on on Email field.
  * @returns {void}
  */
 
@@ -179,7 +179,7 @@ cPassword.disabled = true;
 let cPasswordError = 1;
 /**
  * @description Event Listener that listens to password input field blur event and validate the password field. That must be compulsary, Characters must be in the range 8 to 12 with no special characters and it should be only alphanumeric char.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on Password input field.
  * @returns {void}
  */
 
@@ -216,7 +216,7 @@ password.addEventListener("blur", (event) => {
 
 /**
  * @description Event Listener that listens to confirm password input field blur event and validate the input field.Must be compulsary and must be same as password field.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on Confirm Password input field.
  * @returns {void}
  */
 
@@ -250,7 +250,7 @@ let dobError = 0;
 
 /**
  * @description Event Listener that listens to date of birth input field click event and validate the form. Date of birth with date, month, year required.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on Date of birth parent div.
  * @returns {void}
  */
 
@@ -298,7 +298,7 @@ let aboutError = 1;
 
 /**
  * @description Event Listener that listens to about you input field blur event and validate the about you input field. It is compulsary field.
- * @param {event} event The event object that fires on fname
+ * @param {event} event The event object that fires on About you text field.
  * @returns {void}
  */
 
