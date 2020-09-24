@@ -1,5 +1,5 @@
 const greet = (name) => {
-  console.log(`Welcome ${name} to party`);
+  console.log(`Hello ${name} welcome to the party`);
 };
 
 function user(name, cb) {

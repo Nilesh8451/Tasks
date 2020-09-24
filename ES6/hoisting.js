@@ -9,5 +9,12 @@ function print() {
   var nameB = "Nilesh Chavan";
   const nameC = "Nilesh Ganpat Chavan";
 
+  greet(nameB);
   console.log(nameB);
+}
+
+function greet(name) {
+  console.log(
+    `Hi ${name}, Neosoft Technologies selected you as a best performer of the Year! Congrats.`
+  );
 }

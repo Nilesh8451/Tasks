@@ -35,7 +35,7 @@ cleanRoom()
 
 console.log("User Performing Action, He will update tasks after 6 sec");
 
-const rejectEx = () => {
+const rejectTask = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       reject("Some Error Occured");
@@ -43,7 +43,7 @@ const rejectEx = () => {
   });
 };
 
-Promise.all([cleanRoom(), removeGarbage(), winIceCream(), rejectEx()])
+Promise.all([cleanRoom(), removeGarbage(), winIceCream(), rejectTask()])
   .then((res) => {
     console.log(res);
   })
@@ -51,7 +51,7 @@ Promise.all([cleanRoom(), removeGarbage(), winIceCream(), rejectEx()])
     console.log(e);
   });
 
-Promise.race([cleanRoom(), removeGarbage(), winIceCream(), rejectEx()])
+Promise.race([cleanRoom(), removeGarbage(), winIceCream(), rejectTask()])
   .then((res) => {
     console.log(res);
   })
@@ -63,7 +63,7 @@ Promise.allSettled([
   cleanRoom(),
   removeGarbage(),
   winIceCream(),
-  rejectEx(),
+  rejectTask(),
 ]).then((res) => {
   console.log(res);
 });
