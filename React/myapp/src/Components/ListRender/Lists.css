@@ -1,0 +1,9 @@
+.lists_div {
+    width: 50%;
+    margin: auto;
+    box-shadow: 0 3px 2px gray;
+    padding: 20px;
+    border: 1px solid rgb(199, 187, 187);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

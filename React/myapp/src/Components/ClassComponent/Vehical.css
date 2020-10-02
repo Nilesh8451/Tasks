@@ -1,0 +1,10 @@
+.vehical {
+    width: 70%;
+    /* background-color: gray; */
+    box-shadow: 0 3px 3px gray;
+    border: 1px solid gray;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
