@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(125, 221, 221);
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 20px;
+    list-style-type: none;
+}
