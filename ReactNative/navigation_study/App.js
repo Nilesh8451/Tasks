@@ -91,9 +91,6 @@ const createBottomTabStack = ({navigation})=>
 
 function App() {
 
-
-
-
   return (
     <NavigationContainer>
 
