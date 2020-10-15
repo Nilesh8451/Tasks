@@ -1,7 +1,7 @@
-import React from 'react';
-import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
-import {Formik} from 'formik';
-import * as yup from 'yup';
+import React from "react";
+import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import { Formik } from "formik";
+import * as yup from "yup";
 
 const reviewSchema = yup.object({
   title: yup.string().required().min(4),
@@ -9,30 +9,31 @@ const reviewSchema = yup.object({
   rating: yup
     .string()
     .required()
-    .test('is-num-1-5', 'Rating must be a number 1-5', (val) => {
+    .test("is-num-1-5", "Rating must be a number 1-5", (val) => {
       return parseInt(val) < 6 && parseInt(val) > 0;
     }),
 });
 
-export default function ReviewForm({addReview}) {
+export default function ReviewForm({ addReview }) {
   return (
     <View>
       <Formik
-        initialValues={{title: '', body: '', rating: ''}}
+        initialValues={{ title: "", body: "", rating: "" }}
         validationSchema={reviewSchema}
         onSubmit={(values, action) => {
           console.log(values);
           action.resetForm();
           addReview(values);
-        }}>
+        }}
+      >
         {(formikProps) => (
           <View>
             <TextInput
               style={styles.input}
               placeholder="Review Title"
-              onChangeText={formikProps.handleChange('title')}
+              onChangeText={formikProps.handleChange("title")}
               value={formikProps.values.title}
-              onBlur={formikProps.handleBlur('title')}
+              onBlur={formikProps.handleBlur("title")}
             />
             <Text style={styles.text}>
               {formikProps.touched.title && formikProps.errors.title}
@@ -42,9 +43,9 @@ export default function ReviewForm({addReview}) {
               style={styles.input}
               multiline
               placeholder="Review Body"
-              onChangeText={formikProps.handleChange('body')}
+              onChangeText={formikProps.handleChange("body")}
               value={formikProps.values.body}
-              onBlur={formikProps.handleBlur('body')}
+              onBlur={formikProps.handleBlur("body")}
             />
             <Text style={styles.text}>
               {formikProps.touched.body && formikProps.errors.body}
@@ -53,9 +54,9 @@ export default function ReviewForm({addReview}) {
             <TextInput
               style={styles.input}
               placeholder="Review (1-5)"
-              onChangeText={formikProps.handleChange('rating')}
+              onChangeText={formikProps.handleChange("rating")}
               value={formikProps.values.rating}
-              onBlur={formikProps.handleBlur('rating')}
+              onBlur={formikProps.handleBlur("rating")}
               keyboardType="numeric"
             />
             <Text style={styles.text}>
@@ -77,7 +78,7 @@ export default function ReviewForm({addReview}) {
 const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
     padding: 10,
     fontSize: 18,
     borderRadius: 6,
@@ -85,9 +86,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   text: {
-    color: 'red',
+    color: "red",
     marginBottom: 10,
-    textAlign: 'center',
-    textTransform: 'uppercase',
+    textAlign: "center",
+    textTransform: "uppercase",
   },
 });
