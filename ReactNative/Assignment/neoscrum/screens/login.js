@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -7,10 +7,16 @@ import {
   Button,
   Keyboard,
   TouchableWithoutFeedback,
+  ActivityIndicator,
+  Alert,
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {Formik} from 'formik';
 import * as yup from 'yup';
+import {login} from '../redux/action/loginAction';
+
+import {connect} from 'react-redux';
+import axios from 'axios';
 
 const loginSchema = yup.object({
   email: yup.string().required().min(4).email(),
@@ -21,20 +27,34 @@ const loginSchema = yup.object({
     .matches(/^[a-zA-Z0-9_]*$/, 'Must Be Alphanumeric Characters'),
 });
 
-function Login({navigation}) {
+/**
+ * @author Nilesh Ganpat Chavan
+ * @description This shows logged in screen.Which containes email and password field.
+ * @param {navigation object} navigation Which is userful to traverse throung different routes available with
+ * this object
+ * @returns jsx which contains input to perform log in.
+ */
+
+function Login({isLoading, error, navigation}) {
   const [securePassword, setSecurePassword] = useState(true);
-  const [eyeColor, setEyeColor] = useState('black');
+  const [eyeStyle, setEyeStyle] = useState('eye-slash');
+
+  useEffect(() => {
+    if (error) {
+      Alert.alert('OOPS!', 'Wrong Username or Password');
+    }
+  }, [error]);
 
   handleEyeClick = () => {
     setSecurePassword(!securePassword);
-    if (eyeColor === 'black') {
-      setEyeColor('blue');
+    if (eyeStyle === 'eye-slash') {
+      setEyeStyle('eye');
     } else {
-      setEyeColor('black');
+      setEyeStyle('eye-slash');
     }
   };
 
-  return (
+  return isLoading === false ? (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
         <Formik
@@ -42,7 +62,19 @@ function Login({navigation}) {
           validationSchema={loginSchema}
           onSubmit={(values, action) => {
             console.log('Call The Login APi');
-            action.resetForm();
+            axios
+              .post('http://180.149.241.208:3001/login', {
+                user_email: values.email,
+                user_pass: values.password,
+              })
+              .then((res) => {
+                console.log('Success');
+                Alert.alert('hooray!', res.user_name);
+                action.resetForm();
+              })
+              .catch((e) => {
+                console.log('Login Error', e);
+              });
           }}>
           {(formikProps) => (
             <View style={styles.mainDiv}>
@@ -73,8 +105,8 @@ function Login({navigation}) {
                       onBlur={formikProps.handleBlur('password')}
                     />
                     <FontAwesome5
-                      name={'eye-slash'}
-                      color={eyeColor}
+                      name={eyeStyle}
+                      color={'black'}
                       solid
                       size={20}
                       style={{
@@ -113,6 +145,10 @@ function Login({navigation}) {
         </Formik>
       </View>
     </TouchableWithoutFeedback>
+  ) : (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <ActivityIndicator size="large" color="#00ff00" />
+    </View>
   );
 }
 
@@ -121,15 +157,12 @@ const styles = StyleSheet.create({
     height: '100%',
     height: '100%',
     flexDirection: 'column',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: 'gray',
   },
   mainDiv: {
     height: '90%',
+    maxWidth: 600,
     justifyContent: 'center',
     marginTop: 4,
-    // backgroundColor: 'pink',
   },
   companyName: {
     textAlign: 'center',
@@ -143,7 +176,6 @@ const styles = StyleSheet.create({
   card: {
     marginTop: 20,
     marginHorizontal: 20,
-    // backgroundColor: 'red',
     borderWidth: 0.1,
     shadowColor: '#000',
     shadowOffset: {
@@ -197,11 +229,24 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
     marginBottom: 10,
-    // textAlign: 'center',
     marginTop: 5,
     marginLeft: 2,
     textTransform: 'capitalize',
   },
 });
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer.user,
+    isLoading: state.userReducer.isLoading,
+    error: state.userReducer.error,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (user) => dispatch(login(user)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

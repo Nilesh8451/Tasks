@@ -1,5 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {connect} from 'react-redux';
+import {getFeedback} from '../redux/action/feedbackAction';
+/**
+ * @author Nilesh Ganpat Chavan
+ * @description This screen shows feedback given by other users of the app.So that user can userstand what
+ * other think about you without knowing who wrote this feedback.
+ * @returns jsx which contains card of feedback receives from other users
+ */
 
 function Dashboard() {
   return (
@@ -70,19 +78,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     height: '100%',
-    // backgroundColor: 'red',
     justifyContent: 'center',
   },
   cardMainDiv: {
     flex: 1,
     paddingVertical: 30,
-    // backgroundColor: 'pink',
     alignItems: 'center',
   },
   card: {
     width: '80%',
+    maxWidth: 600,
     height: 285,
-    // backgroundColor: 'gray',
     backgroundColor: 'white',
     marginBottom: 30,
     alignItems: 'center',
@@ -111,7 +117,6 @@ const styles = StyleSheet.create({
     marginVertical: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // backgroundColor: 'yellow',
     height: 100,
   },
   bodyText: {
@@ -120,7 +125,6 @@ const styles = StyleSheet.create({
   },
   cardFooter: {
     width: '90%',
-    // backgroundColor: 'yellow',
     alignItems: 'flex-end',
   },
   footerText: {
@@ -128,4 +132,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  return {
+    feedback: state.feedbackReducer.feedback,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getFeedback: (id) => dispatch(getFeedback(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

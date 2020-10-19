@@ -12,11 +12,20 @@ import {
 import ImagePicker from 'react-native-image-picker';
 import {Formik} from 'formik';
 import * as yup from 'yup';
+import axios from 'axios';
 
 const regSchema = yup.object({
   name: yup.string().required().min(2),
   email: yup.string().required().min(4).email(),
 });
+
+/**
+ * @author Nilesh Ganpat Chavan
+ * @description This shows Registration screen.Which containes name email and profile image field.
+ * @param {navigation object} navigation Which is userful to traverse throung different routes available with
+ * this object
+ * @returns jsx which contains input to perform registration.
+ */
 
 function Registration({navigation}) {
   const [imageData, setImageData] = useState({});
@@ -39,15 +48,26 @@ function Registration({navigation}) {
           initialValues={{name: '', email: ''}}
           validationSchema={regSchema}
           onSubmit={(values, action) => {
-            // console.log(values, imageData);
-
             if (!imageData.type) {
               Alert.alert('OOPS!', 'Profile Image Is Required Please Select', [
                 {text: 'Understood'},
               ]);
             } else {
-              console.log('Call The Reg API');
-              action.resetForm();
+              console.log('Calling The Reg API.....');
+              axios
+                .post('http://180.149.241.208:3001/registration', {
+                  user_name: values.name,
+                  user_email: values.email,
+                  profile_image: imageData.path,
+                })
+                .then((res) => {
+                  console.log('Success');
+                  Alert.alert('hooray!', res.message);
+                  action.resetForm();
+                })
+                .catch((e) => {
+                  console.log('Registartion Error', e);
+                });
             }
           }}>
           {(formikProps) => (
@@ -119,13 +139,11 @@ const styles = StyleSheet.create({
     height: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: 'gray',
   },
   mainDiv: {
     height: '90%',
+    maxWidth: 600,
     justifyContent: 'center',
-    // backgroundColor: 'pink',
   },
   companyName: {
     textAlign: 'center',
@@ -139,7 +157,6 @@ const styles = StyleSheet.create({
   card: {
     marginTop: 20,
     marginHorizontal: 20,
-    // backgroundColor: 'red',
     borderWidth: 0.1,
     shadowColor: '#000',
     shadowOffset: {
@@ -148,7 +165,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
-
     elevation: 4,
   },
   cardContent: {
@@ -191,7 +207,6 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
     marginBottom: 3,
-    // textAlign: 'center',
     marginTop: 5,
     marginLeft: 2,
     textTransform: 'capitalize',

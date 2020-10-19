@@ -12,6 +12,7 @@ import Details from './details';
 import Tab1 from './screens/tabs/tab1';
 import Tab2 from './screens/tabs/tab2';
 import Tab3 from './screens/tabs/tab3';
+import CustomDrawer from './screens/customDrawer';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -90,7 +91,8 @@ export default class App extends Component {
   render() {
     return (
       <NavigationContainer>
-        <Drawer.Navigator>
+        <Drawer.Navigator
+          drawerContent={(props) => <CustomDrawer {...props} />}>
           <Drawer.Screen name="Home" children={this.createHomeStack} />
           <Drawer.Screen name="Contacts" component={Screen1} />
           <Drawer.Screen name="Favorites" component={Screen2} />
