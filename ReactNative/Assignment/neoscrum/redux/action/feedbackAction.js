@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {ADD_FEEDBACK, GET_FEEDBACK} from './types';
+import {ADD_FEEDBACK, GET_DASHBOARD, GET_FEEDBACK} from './types';
 
 export const addFeedback = (feedback) => {
   return {
@@ -15,6 +15,20 @@ export const getFeedback = (id) => {
       .then((res) => {
         console.log(res);
         dispatch({type: GET_FEEDBACK, data: res});
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+};
+
+export const getDashboard = (id) => {
+  return (dispatch) => {
+    axios
+      .get('')
+      .then((res) => {
+        console.log(res);
+        dispatch({type: GET_DASHBOARD, data: res});
       })
       .catch((e) => {
         console.log(e);

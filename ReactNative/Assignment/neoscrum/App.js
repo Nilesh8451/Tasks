@@ -25,7 +25,7 @@ const Drawer = createDrawerNavigator();
 
 function App({user, signout}) {
   logoutHandler = () => {
-    console.log('User is trying to logout');
+    // console.log('User is trying to logout');
     Alert.alert('Warning!', 'Are you sure you want to signout', [
       {
         text: 'NO',

@@ -5,7 +5,7 @@ export const login = (user) => {
   return (dispatch) => {
     dispatch({type: LOGIN_REQUEST});
     axios
-      .post('http://180.149.241.208:3000/login', {
+      .post('http://180.149.241.208:3001/login', {
         user_email: user.email,
         user_pass: user.password,
       })

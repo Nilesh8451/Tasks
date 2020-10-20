@@ -4,3 +4,4 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const SIGNOUT = 'SIGNOUT';
 export const ADD_FEEDBACK = 'ADD_FEEDBACK';
 export const GET_FEEDBACK = 'GET_FEEDBACK';
+export const GET_DASHBOARD = 'GET_DASHBOARD';

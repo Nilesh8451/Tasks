@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
-import {getFeedback} from '../redux/action/feedbackAction';
+import {getDashboard} from '../redux/action/feedbackAction';
 /**
  * @author Nilesh Ganpat Chavan
  * @description This screen shows feedback given by other users of the app.So that user can userstand what
@@ -9,65 +9,42 @@ import {getFeedback} from '../redux/action/feedbackAction';
  * @returns jsx which contains card of feedback receives from other users
  */
 
-function Dashboard() {
+function Dashboard({dashboard, getDashboard}) {
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.cardMainDiv}>
-          <View style={styles.card}>
-            <View style={styles.cardHeader}>
-              <Text>Feedback</Text>
-              <Text>in 6 hours</Text>
-            </View>
-            <View style={styles.cardBody}>
-              <Text style={styles.bodyText}>
-                Your program is very understandable
-              </Text>
-            </View>
-            <View style={styles.cardFooter}>
-              <View style={styles.footerContent}>
-                <Text style={styles.footerText}>sent by : Steve Jobs</Text>
-                <Text style={styles.footerText}>posted on : 2 feb 2015</Text>
+          {dashboard.map((item) => (
+            <View style={styles.card} key={item.posting_date}>
+              <View style={styles.cardHeader}>
+                <Text>Feedback</Text>
+                <Text>
+                  in{' '}
+                  {parseInt(
+                    (new Date().getTime() -
+                      new Date(item.posting_date).getTime()) /
+                      3600 /
+                      1000,
+                  )}{' '}
+                  hours
+                </Text>
+              </View>
+              <View style={styles.cardBody}>
+                <Text style={styles.bodyText}>{item.feedback_data}</Text>
+              </View>
+              <View style={styles.cardFooter}>
+                <View style={styles.footerContent}>
+                  <Text style={styles.footerText}>
+                    sent by : Anonymous user
+                  </Text>
+                  <Text style={styles.footerText}>
+                    posted on :
+                    {String(new Date(item.posting_date).toDateString())}
+                  </Text>
+                </View>
               </View>
             </View>
-          </View>
-
-          <View style={styles.card}>
-            <View style={styles.cardHeader}>
-              <Text>Feedback</Text>
-              <Text>in 6 hours</Text>
-            </View>
-            <View style={styles.cardBody}>
-              <Text style={styles.bodyText}>
-                Your program is very understandable
-              </Text>
-            </View>
-            <View style={styles.cardFooter}>
-              <View style={styles.footerContent}>
-                <Text style={styles.footerText}>sent by : Steve Jobs</Text>
-                <Text style={styles.footerText}>posted on : 2 feb 2015</Text>
-              </View>
-            </View>
-          </View>
-
-          <View style={styles.card}>
-            <View style={styles.cardHeader}>
-              <Text>Feedback</Text>
-              <Text>in 6 hours</Text>
-            </View>
-            <View style={styles.cardBody}>
-              <Text style={styles.bodyText}>
-                Her kitchen appears unused. No plantain peels huddled in the
-                corner. No orphan mustard seeds sajhsa.
-              </Text>
-            </View>
-            <View style={styles.cardFooter}>
-              <View style={styles.footerContent}>
-                <Text style={styles.footerText}>sent by : Steve Jobs</Text>
-                <Text style={styles.footerText}>posted on : 2 feb 2015</Text>
-              </View>
-            </View>
-          </View>
+          ))}
         </View>
       </View>
     </ScrollView>
@@ -134,13 +111,13 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    feedback: state.feedbackReducer.feedback,
+    dashboard: state.feedbackReducer.dashboard,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getFeedback: (id) => dispatch(getFeedback(id)),
+    getDashboard: (id) => dispatch(getDashboard(id)),
   };
 };
 

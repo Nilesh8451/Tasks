@@ -22,21 +22,19 @@ import {Formik} from 'formik';
  * @returns jsx which contains card of different users
  */
 
-function AddFeedback() {
-  const [addFeedbackData, setAddFeedbackData] = useState([1, 2]);
-
+function AddFeedback({feedback, addFeedback}) {
   handleSubmit = (item, inVal) => {
-    console.log('Clicked submit with value and itemno', inVal, item);
+    // console.log('Clicked submit with value and itemno', inVal, item);
   };
 
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.cardMainDiv}>
-          {addFeedbackData.map((item) => {
+          {feedback.map((item) => {
             return (
               <Formik
-                key={item}
+                key={item.receiver_id}
                 initialValues={{feedbackInput: '', user: ''}}
                 onSubmit={(values, action) => {
                   console.log('Call The Login APi');
@@ -64,13 +62,13 @@ function AddFeedback() {
                               size={90}
                               rounded
                               source={{
-                                uri:
-                                  'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+                                uri: item.image_path,
+                                // 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
                               }}
                             />
                           </View>
                           <Text style={styles.receiverName}>
-                            Sukhmeet Singh
+                            {item.receiver_name}
                           </Text>
                         </View>
                       </LinearGradient>
@@ -82,7 +80,6 @@ function AddFeedback() {
                         multiline
                         numberOfLines={4}
                         placeholder="Write your feedback here"
-                        // value={feedbackInput}
                         maxLength={100}
                         value={formikProps.values.feedbackInput}
                         onChangeText={formikProps.handleChange('feedbackInput')}
@@ -102,7 +99,6 @@ function AddFeedback() {
                         <Button
                           title="Submit Feedback"
                           onPress={formikProps.handleSubmit}
-                          // onPress={() => handleSubmit(item)}
                           disabled={
                             formikProps.values.feedbackInput.length == 0
                               ? true

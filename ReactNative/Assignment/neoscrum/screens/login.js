@@ -61,19 +61,19 @@ function Login({isLoading, error, navigation}) {
           initialValues={{email: '', password: ''}}
           validationSchema={loginSchema}
           onSubmit={(values, action) => {
-            console.log('Call The Login APi');
+            // console.log('Call The Login APi');
             axios
               .post('http://180.149.241.208:3001/login', {
                 user_email: values.email,
                 user_pass: values.password,
               })
               .then((res) => {
-                console.log('Success');
+                // console.log('Success');
                 Alert.alert('hooray!', res.user_name);
                 action.resetForm();
               })
               .catch((e) => {
-                console.log('Login Error', e);
+                // console.log('Login Error', e);
               });
           }}>
           {(formikProps) => (
