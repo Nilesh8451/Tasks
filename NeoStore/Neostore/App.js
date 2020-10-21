@@ -1,18 +1,35 @@
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createStackNavigator} from '@react-navigation/stack';
+import LoginStack from './screens/loginStack';
+import RegisterStack from './screens/registrationStack';
+import HomeStack from './screens/homeStack';
 
-import {View, Text} from 'react-native';
-
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Login from './screens/login';
-import Registration from './screens/registration';
+const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 function App() {
   return (
-    <View>
-      <Login />
-      {/* <Registration /> */}
-      {/* <Icon name="rocket" size={30} color="#900" /> */}
-    </View>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="LoginDrawer">
+        <Drawer.Screen
+          name="LoginDrawer"
+          component={LoginStack}
+          options={{title: 'Login'}}
+        />
+        <Drawer.Screen
+          name="RegisterDrawer"
+          component={RegisterStack}
+          options={{title: 'Register'}}
+        />
+        <Drawer.Screen
+          name="HomeDrawer"
+          component={HomeStack}
+          options={{title: 'Home'}}
+        />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
 

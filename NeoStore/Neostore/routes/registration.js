@@ -56,7 +56,7 @@ var radio_props = [
   {label: 'Female', value: 1},
 ];
 
-function Registration() {
+function Registration({navigation}) {
   const [securePassword, setSecurePassword] = useState(true);
   const [secureCPassword, setSecureCPassword] = useState(true);
   const [PEyeStyle, setPEyeStyle] = useState('eye-slash');
@@ -383,6 +383,7 @@ function Registration() {
                       Have An Account?
                       <TouchableWithoutFeedback
                         onPress={() => {
+                          navigation.navigate('LoginDrawer');
                           console.log('Navigation to sign in');
                         }}>
                         <Text

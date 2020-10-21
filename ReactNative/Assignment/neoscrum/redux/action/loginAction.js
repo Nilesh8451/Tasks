@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {LOGIN, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS} from './types';
+import {LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS} from './types';
 
 export const login = (user) => {
   return (dispatch) => {
