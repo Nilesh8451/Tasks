@@ -102,7 +102,7 @@ function Registration({navigation}) {
             {(formikProps) => (
               <View style={styles.mainDiv}>
                 <Text style={styles.companyName}>
-                  Neo<Text style={{color: '#FF0000'}}>STORE</Text>
+                  Neo<Text style={{color: '#2874F0'}}>STORE</Text>
                 </Text>
                 <View style={styles.card}>
                   <View style={styles.cardContent}>
@@ -118,7 +118,7 @@ function Registration({navigation}) {
                           top: 35,
                           opacity: 0.5,
                         }}
-                        onPress={() => handleEyeClick()}
+                        onPress={() => {}}
                       />
                       <TextInput
                         style={styles.input}
@@ -149,7 +149,7 @@ function Registration({navigation}) {
                           top: 35,
                           opacity: 0.5,
                         }}
-                        onPress={() => handleEyeClick()}
+                        onPress={() => {}}
                       />
                       <TextInput
                         style={styles.input}
@@ -180,7 +180,7 @@ function Registration({navigation}) {
                           top: 35,
                           opacity: 0.5,
                         }}
-                        onPress={() => handleEyeClick()}
+                        onPress={() => {}}
                       />
                       <TextInput
                         style={styles.input}
@@ -212,7 +212,7 @@ function Registration({navigation}) {
                             top: 35,
                             opacity: 0.5,
                           }}
-                          onPress={() => handleEyeClick()}
+                          onPress={() => {}}
                         />
                         <TextInput
                           style={styles.input}
@@ -259,7 +259,7 @@ function Registration({navigation}) {
                             top: 35,
                             opacity: 0.5,
                           }}
-                          onPress={() => handleEyeClick()}
+                          onPress={() => {}}
                         />
                         <TextInput
                           style={styles.input}
@@ -370,7 +370,7 @@ function Registration({navigation}) {
                           title="Register"
                           // color="#f01d71"
                           disabled={!formikProps.isValid}
-                          color={!formikProps.isValid ? 'gray' : '#FF0000'}
+                          color={!formikProps.isValid ? 'gray' : '#2874F0'}
                           onPress={formikProps.handleSubmit}
                         />
                       </View>

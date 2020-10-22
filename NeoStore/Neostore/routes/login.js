@@ -13,6 +13,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import FlatButton from '../shared/button';
+import Toast from 'react-native-simple-toast';
 
 const loginSchema = yup.object({
   email: yup.string().required().email(),
@@ -28,7 +29,7 @@ function Login({navigation}) {
   const [securePassword, setSecurePassword] = useState(true);
   const [eyeStyle, setEyeStyle] = useState('eye-slash');
 
-  handleEyeClick = () => {
+  const handleEyeClick = () => {
     setSecurePassword(!securePassword);
     if (eyeStyle === 'eye-slash') {
       setEyeStyle('eye');
@@ -50,6 +51,8 @@ function Login({navigation}) {
             validationSchema={loginSchema}
             onSubmit={(values, action) => {
               console.log(values);
+              Toast.show('Login Successfully', Toast.LONG);
+              navigation.navigate('HomeDrawer');
               action.resetForm();
             }}>
             {(formikProps) => (
@@ -74,7 +77,7 @@ function Login({navigation}) {
                           paddingTop: 18,
                           opacity: 0.5,
                         }}
-                        onPress={() => handleEyeClick()}
+                        onPress={() => {}}
                       />
                       <TextInput
                         style={styles.input}
@@ -106,7 +109,7 @@ function Login({navigation}) {
                             paddingTop: 2,
                             opacity: 0.5,
                           }}
-                          onPress={() => handleEyeClick()}
+                          onPress={() => {}}
                         />
                         <TextInput
                           style={styles.input}

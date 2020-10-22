@@ -1,22 +1,18 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Registration from '../routes/registration';
+import ViewProduct from '../routes/viewProduct';
 const Stack = createStackNavigator();
 
-function RegisterStack({navigation}) {
+function ViewProductStack({navigation}) {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Register"
-        component={Registration}
+        name="ViewProduct"
+        component={ViewProduct}
         options={{
-          title: 'Register',
+          title: 'Products',
           headerStyle: {backgroundColor: '#2874F0'},
-          // FF0000
-          // 2874F0
-          // headerTitleAlign: 'center',
           headerTintColor: 'white',
           headerLeft: () => (
             <FontAwesome5
@@ -36,4 +32,4 @@ function RegisterStack({navigation}) {
   );
 }
 
-export default RegisterStack;
+export default ViewProductStack;

@@ -13,6 +13,8 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import FlatButton from '../shared/button';
 
+import Toast from 'react-native-simple-toast';
+
 const mySchema = yup.object({
   optInput: yup
     .string()
@@ -67,6 +69,7 @@ function SetPassword({navigation}) {
             validationSchema={mySchema}
             onSubmit={(values, action) => {
               console.log(values);
+              Toast.show('Your Password Changed Successfully', Toast.LONG);
               navigation.popToTop();
               action.resetForm();
             }}>
@@ -79,7 +82,7 @@ function SetPassword({navigation}) {
                   <View style={styles.cardContent}>
                     <View>
                       <FontAwesome5
-                        name={'phone-alt'}
+                        name={'key'}
                         color={'black'}
                         solid
                         size={18}
