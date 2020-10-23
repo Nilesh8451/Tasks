@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
@@ -7,12 +7,12 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-} from 'react-native';
-import Swiper from 'react-native-swiper';
-import {Rating, AirbnbRating} from 'react-native-ratings';
+} from "react-native";
+import Swiper from "react-native-swiper";
+import { Rating, AirbnbRating } from "react-native-ratings";
 
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 function Home() {
   return (
     <View style={styles.container}>
@@ -20,23 +20,25 @@ function Home() {
         contentContainerStyle={{
           // flex: 1,
           // paddingVertical: 60,
-          backgroundColor: 'pink',
-        }}>
+          backgroundColor: "pink",
+        }}
+      >
         <View style={styles.searchBox}>
           <View
             style={{
               marginBottom: 12,
               // flexDirection: 'column',
               marginHorizontal: 5,
-            }}>
+            }}
+          >
             <FontAwesome5
-              name={'search'}
-              color={'black'}
+              name={"search"}
+              color={"black"}
               // backgroundColor="black"
               solid
               size={21}
               style={{
-                position: 'absolute',
+                position: "absolute",
                 left: 14,
                 top: 22,
                 opacity: 0.5,
@@ -53,17 +55,18 @@ function Home() {
             />
           </View>
         </View>
-        <View style={{width: '100%', backgroundColor: '#2874F0'}}>
+        <View style={{ width: "100%", backgroundColor: "#2874F0" }}>
           <View style={styles.sliderContainer}>
             <Swiper
               autoplay
               horizontal={true}
               height={200}
-              activeDotColor="#FF6347">
+              activeDotColor="#FF6347"
+            >
               <View style={styles.slide}>
                 <TouchableOpacity>
                   <Image
-                    source={require('../assets/images/food-banner1.jpg')}
+                    source={require("../assets/images/food-banner1.jpg")}
                     resizeMode="cover"
                     style={styles.sliderImage}
                   />
@@ -73,7 +76,7 @@ function Home() {
               <View style={styles.slide}>
                 <TouchableOpacity>
                   <Image
-                    source={require('../assets/images/food-banner2.jpg')}
+                    source={require("../assets/images/food-banner2.jpg")}
                     resizeMode="cover"
                     style={styles.sliderImage}
                   />
@@ -82,7 +85,7 @@ function Home() {
               <View style={styles.slide}>
                 <TouchableOpacity>
                   <Image
-                    source={require('../assets/images/food-banner3.jpg')}
+                    source={require("../assets/images/food-banner3.jpg")}
                     resizeMode="cover"
                     style={styles.sliderImage}
                   />
@@ -94,36 +97,38 @@ function Home() {
 
         <View style={styles.popularProducts}>
           <View style={styles.popularProductsHeader}>
-            <Text style={{fontSize: 18}}>Popular Products</Text>
-            <Text style={{fontSize: 17, marginTop: 10}}>View All</Text>
+            <Text style={{ fontSize: 18 }}>Popular Products</Text>
+            <Text style={{ fontSize: 17, marginTop: 10 }}>View All</Text>
           </View>
 
           <View style={styles.productCardContainer}>
             <TouchableWithoutFeedback
               onPress={() => {
-                console.log('Clicked on Card');
-              }}>
+                console.log("Clicked on Card");
+              }}
+            >
               <View style={styles.productCardContent}>
                 <View style={styles.productCard}>
-                  <View style={{width: 100, height: 100}}>
+                  <View style={{ width: 100, height: 100 }}>
                     <Image
-                      source={require('../assets/images/food-banner2.jpg')}
+                      source={require("../assets/images/food-banner2.jpg")}
                       style={styles.cardImage}
                     />
                   </View>
                   <View style={styles.cardDetail}>
-                    <Text numberOfLines={1} style={{fontSize: 22}}>
+                    <Text numberOfLines={1} style={{ fontSize: 22 }}>
                       Robinson
                     </Text>
-                    <Text numberOfLines={1} style={{fontSize: 16}}>
+                    <Text numberOfLines={1} style={{ fontSize: 16 }}>
                       Matte
                     </Text>
                     <View
                       style={{
-                        flexDirection: 'row',
-                        justifyContent: 'flex-end',
+                        flexDirection: "row",
+                        justifyContent: "flex-end",
                         marginRight: 30,
-                      }}>
+                      }}
+                    >
                       <Rating
                         ratingCount={5}
                         startingValue={3.5}
@@ -132,7 +137,7 @@ function Home() {
                       />
                     </View>
 
-                    <Text style={{fontSize: 20, color: '#FE5555'}}>
+                    <Text style={{ fontSize: 20, color: "#FE5555" }}>
                       Rs. 40000
                     </Text>
                   </View>
@@ -142,27 +147,29 @@ function Home() {
 
             <TouchableWithoutFeedback
               onPress={() => {
-                console.log('Clicked on Card');
-              }}>
+                console.log("Clicked on Card");
+              }}
+            >
               <View style={styles.productCardContent}>
                 <View style={styles.productCard}>
-                  <View style={{width: 100, height: 100}}>
+                  <View style={{ width: 100, height: 100 }}>
                     <Image
-                      source={require('../assets/images/food-banner2.jpg')}
+                      source={require("../assets/images/food-banner2.jpg")}
                       style={styles.cardImage}
                     />
                   </View>
                   <View style={styles.cardDetail}>
-                    <Text numberOfLines={1} style={{fontSize: 22}}>
+                    <Text numberOfLines={1} style={{ fontSize: 22 }}>
                       Robinson
                     </Text>
-                    <Text style={{fontSize: 16}}>Matte</Text>
+                    <Text style={{ fontSize: 16 }}>Matte</Text>
                     <View
                       style={{
-                        flexDirection: 'row',
-                        justifyContent: 'flex-end',
+                        flexDirection: "row",
+                        justifyContent: "flex-end",
                         marginRight: 30,
-                      }}>
+                      }}
+                    >
                       <Rating
                         ratingCount={5}
                         startingValue={3.5}
@@ -171,7 +178,7 @@ function Home() {
                       />
                     </View>
 
-                    <Text style={{fontSize: 20, color: '#FE5555'}}>
+                    <Text style={{ fontSize: 20, color: "#FE5555" }}>
                       Rs. 40000
                     </Text>
                   </View>
@@ -181,27 +188,29 @@ function Home() {
 
             <TouchableWithoutFeedback
               onPress={() => {
-                console.log('Clicked on Card');
-              }}>
+                console.log("Clicked on Card");
+              }}
+            >
               <View style={styles.productCardContent}>
                 <View style={styles.productCard}>
-                  <View style={{width: 100, height: 100}}>
+                  <View style={{ width: 100, height: 100 }}>
                     <Image
-                      source={require('../assets/images/food-banner2.jpg')}
+                      source={require("../assets/images/food-banner2.jpg")}
                       style={styles.cardImage}
                     />
                   </View>
                   <View style={styles.cardDetail}>
-                    <Text numberOfLines={1} style={{fontSize: 22}}>
+                    <Text numberOfLines={1} style={{ fontSize: 22 }}>
                       Robinson
                     </Text>
-                    <Text style={{fontSize: 16}}>Matte</Text>
+                    <Text style={{ fontSize: 16 }}>Matte</Text>
                     <View
                       style={{
-                        flexDirection: 'row',
-                        justifyContent: 'flex-end',
+                        flexDirection: "row",
+                        justifyContent: "flex-end",
                         marginRight: 30,
-                      }}>
+                      }}
+                    >
                       <Rating
                         ratingCount={5}
                         startingValue={3.5}
@@ -210,7 +219,7 @@ function Home() {
                       />
                     </View>
 
-                    <Text style={{fontSize: 20, color: '#FE5555'}}>
+                    <Text style={{ fontSize: 20, color: "#FE5555" }}>
                       Rs. 40000
                     </Text>
                   </View>
@@ -220,27 +229,29 @@ function Home() {
 
             <TouchableWithoutFeedback
               onPress={() => {
-                console.log('Clicked on Card');
-              }}>
+                console.log("Clicked on Card");
+              }}
+            >
               <View style={styles.productCardContent}>
                 <View style={styles.productCard}>
-                  <View style={{width: 100, height: 100}}>
+                  <View style={{ width: 100, height: 100 }}>
                     <Image
-                      source={require('../assets/images/food-banner2.jpg')}
+                      source={require("../assets/images/food-banner2.jpg")}
                       style={styles.cardImage}
                     />
                   </View>
                   <View style={styles.cardDetail}>
-                    <Text numberOfLines={1} style={{fontSize: 22}}>
+                    <Text numberOfLines={1} style={{ fontSize: 22 }}>
                       Robinson
                     </Text>
-                    <Text style={{fontSize: 16}}>Matte</Text>
+                    <Text style={{ fontSize: 16 }}>Matte</Text>
                     <View
                       style={{
-                        flexDirection: 'row',
-                        justifyContent: 'flex-end',
+                        flexDirection: "row",
+                        justifyContent: "flex-end",
                         marginRight: 30,
-                      }}>
+                      }}
+                    >
                       <Rating
                         ratingCount={5}
                         startingValue={3.5}
@@ -249,7 +260,7 @@ function Home() {
                       />
                     </View>
 
-                    <Text style={{fontSize: 20, color: '#FE5555'}}>
+                    <Text style={{ fontSize: 20, color: "#FE5555" }}>
                       Rs. 40000
                     </Text>
                   </View>
@@ -269,13 +280,13 @@ const styles = StyleSheet.create({
     // backgroundColor: 'yellow',
   },
   searchBox: {
-    backgroundColor: '#2874F0',
+    backgroundColor: "#2874F0",
     // backgroundColor: 'red',
   },
   input: {
     borderWidth: 1,
-    backgroundColor: 'white',
-    borderColor: 'gray',
+    backgroundColor: "white",
+    borderColor: "gray",
     marginTop: 7,
     padding: 10,
     paddingHorizontal: 12,
@@ -287,45 +298,45 @@ const styles = StyleSheet.create({
 
   sliderContainer: {
     height: 200,
-    width: '98%',
+    width: "98%",
     // paddingTop: 10,
     marginBottom: 5,
-    justifyContent: 'center',
-    alignSelf: 'center',
+    justifyContent: "center",
+    alignSelf: "center",
     borderRadius: 3,
   },
 
   slide: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
+    justifyContent: "center",
+    backgroundColor: "transparent",
     borderRadius: 8,
   },
   sliderImage: {
-    height: '100%',
-    width: '100%',
-    alignSelf: 'center',
+    height: "100%",
+    width: "100%",
+    alignSelf: "center",
     borderRadius: 8,
   },
 
   popularProducts: {
     // flex: 1,
-    backgroundColor: '#F1F3F6',
+    backgroundColor: "#F1F3F6",
     // backgroundColor: 'red',
   },
   popularProductsHeader: {
     height: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginVertical: 13,
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
   productCardContainer: {
     // backgroundColor: 'white',
     marginBottom: 20,
   },
   productCardContent: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     paddingHorizontal: 10,
     marginVertical: 5,
   },
@@ -333,16 +344,16 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
 
     // backgroundColor: 'pink',
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   cardImage: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     // marginLeft: 10,
   },
   cardDetail: {
     // backgroundColor: 'red',
-    width: '68%',
+    width: "68%",
     marginLeft: 20,
   },
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import ViewProduct from '../routes/viewProduct';
+import ProductDetail from '../routes/productDetail';
 const Stack = createStackNavigator();
 
 function ViewProductStack({navigation}) {
@@ -27,6 +28,23 @@ function ViewProductStack({navigation}) {
             />
           ),
         }}
+      />
+
+      <Stack.Screen
+        name="ProductDetail"
+        component={ProductDetail}
+        options={
+          //   {
+          //   title: 'ProductName',
+          //   headerStyle: {backgroundColor: '#2874F0'},
+          //   headerTintColor: 'white',
+          // }
+          ({route}) => ({
+            title: route.params.product_name,
+            headerStyle: {backgroundColor: '#2874F0'},
+            headerTintColor: 'white',
+          })
+        }
       />
     </Stack.Navigator>
   );
