@@ -19,26 +19,31 @@ function Home({navigation}) {
   const [popularProd, setPopularProd] = useState([
     {
       id: 1,
+      rating: 3.5,
       product_name: 'Some Product Name',
       product_price: 40000,
     },
     {
       id: 2,
+      rating: 3,
       product_name: 'Some Product Name',
       product_price: 40000,
     },
     {
       id: 3,
+      rating: 4.5,
       product_name: 'Some Product Name',
       product_price: 40000,
     },
     {
       id: 4,
+      rating: 5,
       product_name: 'Some Product Name',
       product_price: 40000,
     },
     {
       id: 5,
+      rating: 4.5,
       product_name: 'Some Product Name',
       product_price: 40000,
     },
@@ -169,6 +174,10 @@ function Home({navigation}) {
                   key={product.id}
                   onPress={() => {
                     console.log('Clicked on Card');
+                    navigation.navigate('ProductDetail', {
+                      product_name: product.product_name,
+                      product: product,
+                    });
                   }}>
                   <View style={styles.productCardContent}>
                     <View style={styles.productCard}>
@@ -211,10 +220,10 @@ function Home({navigation}) {
                             <Text
                               style={{fontSize: 21, color: 'white'}}
                               numberOfLines={1}>
-                              Spaghetii Marinara1
+                              {product.product_name}
                             </Text>
                             <Text style={{fontSize: 15, color: 'white'}}>
-                              Rs. 40,000
+                              {product.product_price}
                             </Text>
                           </View>
                         </View>

@@ -8,11 +8,15 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
   Alert,
+  ScrollView,
 } from 'react-native';
+import {globalStyle} from '../shared/globalStyle/style';
 import ImagePicker from 'react-native-image-picker';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
+import {baseUrl, regEndPoint} from '../shared/baseUrl';
+import CustomButton from '../shared/customButton';
 
 const regSchema = yup.object({
   name: yup.string().required().min(2),
@@ -30,11 +34,10 @@ const regSchema = yup.object({
 function Registration({navigation}) {
   const [imageData, setImageData] = useState({});
 
-  handleChooseFile = () => {
-    console.log('Pressed');
+  const handleChooseFile = () => {
     const options = {};
     ImagePicker.launchImageLibrary(options, (response) => {
-      console.log('Response ', response);
+      // console.log('Response ', response);
       if (response?.didCancel !== true) {
         setImageData(response);
       }
@@ -43,92 +46,121 @@ function Registration({navigation}) {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={styles.container}>
-        <Formik
-          initialValues={{name: '', email: ''}}
-          validationSchema={regSchema}
-          onSubmit={(values, action) => {
-            if (!imageData.type) {
-              Alert.alert('OOPS!', 'Profile Image Is Required Please Select', [
-                {text: 'Understood'},
-              ]);
-            } else {
-              console.log('Calling The Reg API.....');
-              axios
-                .post('http://180.149.241.208:3001/registration', {
-                  user_name: values.name,
-                  user_email: values.email,
-                  profile_image: imageData.path,
-                })
-                .then((res) => {
-                  console.log('Success');
-                  Alert.alert('hooray!', res.message);
-                  action.resetForm();
-                })
-                .catch((e) => {
-                  console.log('Registartion Error', e);
-                });
-            }
-          }}>
-          {(formikProps) => (
-            <View style={styles.mainDiv}>
-              <Text style={styles.companyName}>
-                Neo<Text style={styles.redText}>SCRUM</Text>
-              </Text>
-              <View style={styles.card}>
-                <View style={styles.cardContent}>
-                  <Text style={styles.cardHeading}>Admin</Text>
-                  <Text style={styles.inputHeading}>Employee Name:</Text>
-                  <TextInput
-                    style={styles.input}
-                    value={formikProps.values.name}
-                    onChangeText={formikProps.handleChange('name')}
-                    onBlur={formikProps.handleBlur('name')}
-                  />
-                  <Text style={styles.errorText}>
-                    {formikProps.touched.name && formikProps.errors.name}
-                  </Text>
+      <ScrollView style={{flex: 1, marginTop: 30}}>
+        <View style={styles.container}>
+          <Formik
+            initialValues={{name: '', email: ''}}
+            validationSchema={regSchema}
+            onSubmit={(values, action) => {
+              if (!imageData.type) {
+                Alert.alert(
+                  'OOPS!',
+                  'Profile Image Is Required Please Select',
+                  [{text: 'Understood'}],
+                );
+              } else {
+                // console.log('Calling The Reg API.....');
+                axios
+                  .post(`${baseUrl}/${regEndPoint}`, {
+                    user_name: values.name,
+                    user_email: values.email,
+                    profile_image: imageData.path,
+                  })
+                  .then((res) => {
+                    // console.log('Success', res);
+                    Alert.alert('hooray!', res.data.message);
+                    action.resetForm();
+                    setImageData({});
+                    navigation.goBack();
+                  })
+                  .catch((e) => {
+                    Alert.alert('OOPS!', e.response.data.message);
+                    // console.log('Registartion Error', e.response);
+                    action.resetForm();
+                    setImageData({});
+                  });
+              }
+            }}>
+            {(formikProps) => (
+              <View style={{...globalStyle.mainDiv, marginTop: 0}}>
+                <Text style={globalStyle.companyName}>
+                  Neo<Text style={globalStyle.redText}>SCRUM</Text>
+                </Text>
+                <View style={globalStyle.card}>
+                  <View style={globalStyle.cardContent}>
+                    <Text style={globalStyle.cardHeading}>Admin</Text>
+                    <Text style={globalStyle.inputHeading}>Employee Name:</Text>
+                    <TextInput
+                      style={styles.input}
+                      value={formikProps.values.name}
+                      onChangeText={formikProps.handleChange('name')}
+                      onBlur={formikProps.handleBlur('name')}
+                    />
 
-                  <Text style={styles.inputHeading}>Email:</Text>
-                  <TextInput
-                    style={styles.input}
-                    value={formikProps.values.email}
-                    onChangeText={formikProps.handleChange('email')}
-                    onBlur={formikProps.handleBlur('email')}
-                  />
-                  <Text style={styles.errorText}>
-                    {formikProps.touched.email && formikProps.errors.email}
-                  </Text>
+                    {formikProps.touched.name && formikProps.errors.name && (
+                      <Text style={globalStyle.errorText}>
+                        {formikProps.touched.name && formikProps.errors.name}
+                      </Text>
+                    )}
 
-                  <Text style={styles.inputHeading}>Profile Image:</Text>
-                  <TouchableWithoutFeedback onPress={handleChooseFile}>
-                    <View style={styles.inputImage}>
-                      <Text style={styles.inputImageBox}>Choose File</Text>
-                      <Text>No File Chosen</Text>
-                    </View>
-                  </TouchableWithoutFeedback>
+                    <Text style={globalStyle.inputHeading}>Email:</Text>
+                    <TextInput
+                      style={styles.input}
+                      value={formikProps.values.email}
+                      onChangeText={formikProps.handleChange('email')}
+                      onBlur={formikProps.handleBlur('email')}
+                    />
 
-                  <View style={styles.buttonDiv}>
-                    <View style={styles.button}>
-                      <Button
+                    {formikProps.touched.email && formikProps.errors.email && (
+                      <Text style={globalStyle.errorText}>
+                        {formikProps.touched.email && formikProps.errors.email}
+                      </Text>
+                    )}
+
+                    <Text style={globalStyle.inputHeading}>Profile Image:</Text>
+                    <TouchableWithoutFeedback onPress={handleChooseFile}>
+                      <View style={styles.inputImage}>
+                        <Text style={styles.inputImageBox}>Choose File</Text>
+                        <Text numberOfLines={1}>
+                          {imageData.fileName || 'No File Chosen'}
+                        </Text>
+                      </View>
+                    </TouchableWithoutFeedback>
+
+                    <View style={globalStyle.buttonDiv}>
+                      <View style={globalStyle.button}>
+                        {/* <Button
                         title="Registration"
                         onPress={formikProps.handleSubmit}
-                      />
-                    </View>
-                    <View style={[styles.button, styles.oppositeBut]}>
-                      <Button
+                      /> */}
+                        <CustomButton
+                          color="red"
+                          disabled={false}
+                          title="REGISTER"
+                          onPress={formikProps.handleSubmit}
+                        />
+                      </View>
+                      <View style={[styles.button]}>
+                        {/* <Button
                         title="Login"
                         color="black"
                         onPress={() => navigation.goBack()}
-                      />
+                      /> */}
+                        <CustomButton
+                          color="#2B7DE9"
+                          disabled={false}
+                          title="LOGIN"
+                          onPress={() => navigation.goBack()}
+                        />
+                      </View>
                     </View>
                   </View>
                 </View>
               </View>
-            </View>
-          )}
-        </Formik>
-      </View>
+            )}
+          </Formik>
+        </View>
+      </ScrollView>
     </TouchableWithoutFeedback>
   );
 }
@@ -140,45 +172,14 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
   },
-  mainDiv: {
-    height: '90%',
-    maxWidth: 600,
-    justifyContent: 'center',
-  },
-  companyName: {
-    textAlign: 'center',
-    fontSize: 30,
-    color: 'black',
-    fontWeight: 'bold',
-  },
-  redText: {
-    color: 'red',
-  },
-  card: {
-    marginTop: 20,
-    marginHorizontal: 20,
-    borderWidth: 0.1,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 1,
-      height: 3,
-    },
-    shadowOpacity: 0.23,
-    shadowRadius: 2.62,
-    elevation: 4,
-  },
-  cardContent: {
-    marginHorizontal: 15,
-    marginVertical: 30,
-  },
-  cardHeading: {
-    fontSize: 20,
-  },
+
   input: {
     borderWidth: 1,
     marginTop: 10,
     borderColor: 'gray',
     padding: 5,
+    paddingVertical: 7,
+    fontSize: 16,
   },
   inputImage: {
     flexDirection: 'row',
@@ -189,27 +190,8 @@ const styles = StyleSheet.create({
   },
   inputImageBox: {
     backgroundColor: 'gray',
-    padding: 7,
+    padding: 10,
     marginRight: 10,
-  },
-  inputHeading: {
-    marginTop: 10,
-    fontSize: 17,
-  },
-  buttonDiv: {
-    flexDirection: 'row',
-    marginTop: 25,
-  },
-  button: {
-    marginRight: 20,
-  },
-  oppositeBut: {},
-  errorText: {
-    color: 'red',
-    marginBottom: 3,
-    marginTop: 5,
-    marginLeft: 2,
-    textTransform: 'capitalize',
   },
 });
 

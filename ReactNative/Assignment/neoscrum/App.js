@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import LoginReg from './screens/loginReg';
 import AddFeedback from './screens/addFeedback';
 import Dashboard from './screens/dashboard';
@@ -9,7 +9,8 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import DrawerContent from './screens/drawerContent';
 import {connect} from 'react-redux';
 import {signout} from './redux/action/signOutAction';
-import {Alert} from 'react-native';
+import {restoreLoginData} from './redux/action/loginAction';
+import {Alert, AsyncStorage} from 'react-native';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -23,7 +24,7 @@ const Drawer = createDrawerNavigator();
  * @returns This component return Navigation Container which contains different Screens
  */
 
-function App({user, signout}) {
+function App({user, signout, restoreData}) {
   logoutHandler = () => {
     // console.log('User is trying to logout');
     Alert.alert('Warning!', 'Are you sure you want to signout', [
@@ -34,6 +35,25 @@ function App({user, signout}) {
     ]);
   };
 
+  const restoreUserInfo = async () => {
+    try {
+      const user = await AsyncStorage.getItem('userInfo');
+      const parseUserData = await JSON.parse(user);
+      console.log('While Fetching Again', parseUserData.token);
+      if (user !== null) {
+        console.log('Successfulluy fetch user info', parseUserData);
+        restoreData(parseUserData);
+      }
+    } catch (error) {
+      // Error saving data
+    }
+  };
+
+  useEffect(() => {
+    restoreUserInfo();
+    console.log('NEw Data', user.token);
+  }, []);
+
   createDashboardStack = ({navigation}) => {
     return (
       <Stack.Navigator>
@@ -42,7 +62,7 @@ function App({user, signout}) {
           component={Dashboard}
           options={{
             title: 'Dashboard',
-            headerStyle: {backgroundColor: '#F1EFF1'},
+            headerStyle: {backgroundColor: 'white'},
             headerTitleAlign: 'center',
             headerTintColor: 'black',
             headerLeft: () => (
@@ -85,7 +105,7 @@ function App({user, signout}) {
           component={AddFeedback}
           options={{
             title: 'Add Feedback',
-            headerStyle: {backgroundColor: '#F1EFF1'},
+            headerStyle: {backgroundColor: 'white'},
             headerTitleAlign: 'center',
             headerTintColor: 'black',
             headerLeft: () => (
@@ -122,7 +142,8 @@ function App({user, signout}) {
 
   return (
     <NavigationContainer>
-      {user.user_id ? (
+      {console.log('Inside Return', user.token)}
+      {user.token ? (
         <Drawer.Navigator
           drawerContent={(props) => <DrawerContent {...props} />}>
           <Drawer.Screen
@@ -152,6 +173,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     signout: () => dispatch(signout()),
+    restoreData: (user) => dispatch(restoreLoginData(user)),
   };
 };
 

@@ -3,17 +3,12 @@ import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   SIGNOUT,
+  RESTORE_LOGINDATA,
 } from '../action/types';
+import Toast from 'react-native-simple-toast';
 
 const initialState = {
-  user: {
-    user_id: 168,
-    user_name: 'Shubham',
-    user_email: 'sgshubham04@gmail.com',
-    user_pass: '$2a$10$zNA5ZK/uJE6980F2CK.C0e4d27O1uG.G8eaqVG6Etb1wz6LrfOMsK',
-    user_image:
-      'https://upload.wikimedia.org/wikipedia/commons/f/f7/Rohit_Sharma_November_2016_%28cropped%29.jpg',
-  },
+  user: {},
   isLoading: false,
   error: null,
 };
@@ -39,7 +34,18 @@ const userReducer = (state = initialState, action) => {
         isLoading: false,
         error: action.data,
       };
+
+    case RESTORE_LOGINDATA:
+      console.log('restore inside reducer', action.data);
+      return {
+        ...state,
+        user: action.data,
+        isLoading: false,
+        error: null,
+      };
+
     case SIGNOUT:
+      Toast.show('Successfully Logout', Toast.LONG);
       return {
         ...state,
         user: {},

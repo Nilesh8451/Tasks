@@ -1,6 +1,6 @@
 import {SIGNOUT} from './types';
 
-export const signout = (user) => {
+export const signout = () => {
   return {
     type: SIGNOUT,
   };

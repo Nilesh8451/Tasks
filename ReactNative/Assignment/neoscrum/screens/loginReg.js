@@ -3,6 +3,8 @@ import {View, Text} from 'react-native';
 import Login from './login';
 import Registration from './registration';
 import {createStackNavigator} from '@react-navigation/stack';
+import ForgotPassword from './forgotPassword';
+import SetPassword from './setPassword';
 
 const Stack = createStackNavigator();
 /**
@@ -16,6 +18,8 @@ function LoginReg() {
     <Stack.Navigator initialRouteName="Login" headerMode="none">
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Registration" component={Registration} />
+      <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+      <Stack.Screen name="SetPassword" component={SetPassword} />
     </Stack.Navigator>
   );
 }
