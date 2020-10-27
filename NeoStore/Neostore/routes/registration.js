@@ -82,7 +82,11 @@ function Registration({navigation}) {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <ScrollView>
+      <ScrollView
+        contentContainerStyle={{
+          // paddingVertical: 60,
+          backgroundColor: 'white',
+        }}>
         <View style={styles.container}>
           <Formik
             initialValues={{
@@ -420,13 +424,14 @@ const styles = StyleSheet.create({
     maxWidth: 600,
     justifyContent: 'center',
     // alignItems: 'center',
-    marginTop: 35,
-    marginBottom: 50,
-    // backgroundColor: 'red',
+    marginTop: 15,
+    marginBottom: 30,
+    paddingVertical: 20,
+    backgroundColor: 'white',
   },
   companyName: {
     textAlign: 'center',
-    fontSize: 40,
+    fontSize: 35,
     color: 'black',
     // backgroundColor: 'pink',
     fontWeight: 'bold',

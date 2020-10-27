@@ -43,7 +43,7 @@ function Login({navigation}) {
       <ScrollView
         contentContainerStyle={{
           paddingVertical: 60,
-          // backgroundColor: 'red',
+          backgroundColor: 'white',
         }}>
         <View style={styles.container}>
           <Formik
@@ -205,8 +205,8 @@ function Login({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
-    height: '100%',
-    height: '100%',
+    // height: '100%',
+    flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
     // backgroundColor: 'yellow',
@@ -218,12 +218,13 @@ const styles = StyleSheet.create({
     maxWidth: 600,
     justifyContent: 'center',
     // alignItems: 'center',
-    marginTop: 4,
-    // backgroundColor: 'red',
+    marginTop: 0,
+    backgroundColor: 'white',
+    paddingVertical: 20,
   },
   companyName: {
     textAlign: 'center',
-    fontSize: 40,
+    fontSize: 35,
     color: 'black',
     fontWeight: 'bold',
   },

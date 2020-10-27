@@ -13,7 +13,7 @@ const Drawer = createDrawerNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="ProductDrawer">
+      <Drawer.Navigator initialRouteName="HomeDrawer">
         <Drawer.Screen
           name="LoginDrawer"
           component={LoginStack}

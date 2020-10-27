@@ -193,7 +193,10 @@ function ViewProduct({navigation}) {
     'Almirah',
   ]);
 
-  const [costType, setCostType] = useState(['Low To High', 'High To Low']);
+  const [costType, setCostType] = useState([
+    'Price: Low To High',
+    'Price: High To Low',
+  ]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -414,6 +417,10 @@ function ViewProduct({navigation}) {
                 console.log('CLicked with category id of', categoryVal);
                 setColorVal('');
                 setOpenCategoryModal(false);
+                Toast.show(
+                  `Filtered List With ${categoryVal} category`,
+                  Toast.LONG,
+                );
               }}
             />
           </View>
@@ -500,6 +507,10 @@ function ViewProduct({navigation}) {
                   onPress={() => {
                     console.log('CLicked with color id of', colorVal);
                     setOpenColorModal(false);
+                    Toast.show(
+                      `Filtered List With ${colorVal} color`,
+                      Toast.LONG,
+                    );
                   }}
                 />
               </View>
@@ -597,6 +608,7 @@ function ViewProduct({navigation}) {
                   onPress={() => {
                     console.log('Clicked on Cost of Type', costVal);
                     setOpenCostModal(false);
+                    Toast.show(`Filtered List With ${costVal}`, Toast.LONG);
                   }}
                 />
               </View>
@@ -634,6 +646,10 @@ function ViewProduct({navigation}) {
               onPress={() => {
                 console.log('clicked on Rating');
                 setRecentClicked('Rating');
+                Toast.show(
+                  `Filtered List With High Rated Product At The Top`,
+                  Toast.LONG,
+                );
               }}>
               <View style={styles.bottomActionContentBox}>
                 <View style={{flexDirection: 'row'}}>

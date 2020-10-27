@@ -218,11 +218,20 @@ function Home({navigation}) {
                               maxWidth: 200,
                             }}>
                             <Text
-                              style={{fontSize: 21, color: 'white'}}
+                              style={{
+                                fontSize: 20,
+                                color: 'white',
+                                fontWeight: 'bold',
+                              }}
                               numberOfLines={1}>
                               {product.product_name}
                             </Text>
-                            <Text style={{fontSize: 15, color: 'white'}}>
+                            <Text
+                              style={{
+                                fontSize: 16,
+                                color: 'white',
+                                fontWeight: 'bold',
+                              }}>
                               {product.product_price}
                             </Text>
                           </View>

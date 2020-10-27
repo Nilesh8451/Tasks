@@ -5,6 +5,7 @@ import {Rating, AirbnbRating} from 'react-native-ratings';
 import FlatButton from '../shared/button';
 import CustomModal from '../shared/modal';
 import Toast from 'react-native-simple-toast';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 function ProductDetail({navigation, route}) {
   const product = route.params.product;
@@ -122,6 +123,44 @@ function ProductDetail({navigation, route}) {
       </ScrollView>
       <View
         style={{
+          position: 'absolute',
+          backgroundColor: '#2874F0',
+          // width: '100%',
+          width: 60,
+          height: 60,
+          right: 15,
+          bottom: 82,
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderRadius: 30,
+          borderWidth: 0.5,
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 7,
+          },
+          shadowOpacity: 0.43,
+          shadowRadius: 9.51,
+          elevation: 15,
+        }}>
+        <FontAwesome5
+          name={'shopping-cart'}
+          color="white"
+          solid
+          size={28}
+          style={
+            {
+              // marginRight: 25,
+            }
+          }
+          onPress={() => {
+            Toast.show('Item Added To Cart Successfully', Toast.LONG);
+            navigation.pop();
+          }}
+        />
+      </View>
+      <View
+        style={{
           // height: 65,
           paddingVertical: 8,
           backgroundColor: 'white',
@@ -132,12 +171,12 @@ function ProductDetail({navigation, route}) {
         }}>
         <View style={{width: '40%', height: '80%'}}>
           <FlatButton
-            title="ADD TO CART"
+            title="Shop Now"
             disabled={!true}
             color={!true ? 'gray' : '#2874F0'}
             onPress={() => {
-              Toast.show('Item Added To Cart Successfully', Toast.LONG);
-              navigation.pop();
+              // Toast.show('Item Added To Cart Successfully', Toast.LONG);
+              // navigation.pop();
             }}
           />
         </View>

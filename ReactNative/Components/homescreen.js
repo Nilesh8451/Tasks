@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Swiper from "react-native-swiper";
-import { Rating, AirbnbRating } from "react-native-ratings";
+import { Rating } from "react-native-ratings";
 
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
