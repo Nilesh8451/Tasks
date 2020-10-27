@@ -20,7 +20,7 @@ function Dashboard({dashboard, user, getDashboard}) {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {dashboard.lenth > 0 ? (
+        {dashboard.length > 0 ? (
           <View style={styles.cardMainDiv}>
             {dashboard.map((item, index) => (
               <View style={styles.card} key={index}>

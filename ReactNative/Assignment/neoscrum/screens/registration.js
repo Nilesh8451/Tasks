@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  Button,
   Keyboard,
   TouchableWithoutFeedback,
   Alert,
@@ -19,7 +18,11 @@ import {baseUrl, regEndPoint} from '../shared/baseUrl';
 import CustomButton from '../shared/customButton';
 
 const regSchema = yup.object({
-  name: yup.string().required().min(2),
+  name: yup
+    .string()
+    .required()
+    .min(2)
+    .matches(/^[a-zA-Z]+$/, 'Must contain only alphabets'),
   email: yup.string().required().min(4).email(),
 });
 
@@ -59,12 +62,20 @@ function Registration({navigation}) {
                   [{text: 'Understood'}],
                 );
               } else {
-                // console.log('Calling The Reg API.....');
+                // user_name: values.name,
+                // user_email: values.email,
+                // profile_image: imageData.fileName,
+
+                const data = new FormData();
+                data.append('user_name', values.name);
+                data.append('user_email', values.email);
+                data.append('profile_image', imageData.fileName);
+
                 axios
-                  .post(`${baseUrl}/${regEndPoint}`, {
-                    user_name: values.name,
-                    user_email: values.email,
-                    profile_image: imageData.path,
+                  .post(`${baseUrl}/${regEndPoint}`, data, {
+                    headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded',
+                    },
                   })
                   .then((res) => {
                     // console.log('Success', res);
@@ -74,8 +85,8 @@ function Registration({navigation}) {
                     navigation.goBack();
                   })
                   .catch((e) => {
-                    Alert.alert('OOPS!', e.response.data.message);
-                    // console.log('Registartion Error', e.response);
+                    Alert.alert('OOPS!', 'Something Went Wrong');
+                    // console.log('Registartion Error', e, e.response);
                     action.resetForm();
                     setImageData({});
                   });
@@ -129,10 +140,6 @@ function Registration({navigation}) {
 
                     <View style={globalStyle.buttonDiv}>
                       <View style={globalStyle.button}>
-                        {/* <Button
-                        title="Registration"
-                        onPress={formikProps.handleSubmit}
-                      /> */}
                         <CustomButton
                           color="red"
                           disabled={false}
@@ -141,11 +148,6 @@ function Registration({navigation}) {
                         />
                       </View>
                       <View style={[styles.button]}>
-                        {/* <Button
-                        title="Login"
-                        color="black"
-                        onPress={() => navigation.goBack()}
-                      /> */}
                         <CustomButton
                           color="#2B7DE9"
                           disabled={false}

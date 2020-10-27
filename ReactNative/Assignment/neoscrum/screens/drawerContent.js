@@ -8,6 +8,7 @@ import {Avatar} from 'react-native-elements';
 import {StyleSheet, View, Text, Alert} from 'react-native';
 import {connect} from 'react-redux';
 import {signout} from '../redux/action/signOutAction';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 function DrawerContent({user, signout, ...props}) {
   signoutHandler = () => {
@@ -17,6 +18,8 @@ function DrawerContent({user, signout, ...props}) {
       },
       {text: 'YES', onPress: () => signout()},
     ]);
+
+    props.navigation.closeDrawer();
   };
   return (
     <View style={{flex: 1}}>
@@ -59,12 +62,26 @@ function DrawerContent({user, signout, ...props}) {
               </View>
             </View>
           </View>
-          <View style={{marginTop: 20}}>
+          <View style={{marginTop: 30}}>
             <DrawerItemList {...props} />
           </View>
         </View>
         <View style={styles.bottomItem}>
-          <DrawerItem label="Signout" onPress={() => signoutHandler()} />
+          <DrawerItem
+            label="Signout"
+            onPress={() => signoutHandler()}
+            icon={({color, size}) => (
+              <FontAwesome5
+                name={'sign-out-alt'}
+                color={'black'}
+                solid
+                size={18}
+                style={{
+                  opacity: 0.6,
+                }}
+              />
+            )}
+          />
         </View>
       </DrawerContentScrollView>
     </View>

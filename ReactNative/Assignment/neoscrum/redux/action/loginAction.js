@@ -12,9 +12,7 @@ import {AsyncStorage} from 'react-native';
 const storeData = async (user) => {
   try {
     await AsyncStorage.setItem('userInfo', JSON.stringify(user));
-  } catch (e) {
-    console.log(e);
-  }
+  } catch (e) {}
 };
 
 export const restoreLoginData = (user) => {
@@ -32,16 +30,12 @@ export const login = (user) => {
         user_pass: user.password,
       })
       .then((res) => {
-        // console.log('Success of updating', res.data);
-
-        console.log('MYDATA', res.data);
         storeData(res.data);
 
         dispatch({type: LOGIN_SUCCESS, data: res.data});
         Toast.show('Successfully Login', Toast.LONG);
       })
       .catch((e) => {
-        // console.log('Failure of data', e);
         dispatch({type: LOGIN_FAILURE, data: e});
       });
   };

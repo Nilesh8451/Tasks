@@ -5,7 +5,6 @@ export const globalStyle = StyleSheet.create({
     height: '90%',
     maxWidth: 600,
     marginTop: 40,
-    // alignItems: 'center',
     justifyContent: 'center',
   },
 
@@ -33,6 +32,7 @@ export const globalStyle = StyleSheet.create({
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
     elevation: 2,
+    backgroundColor: 'white',
   },
 
   cardContent: {

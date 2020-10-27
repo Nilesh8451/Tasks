@@ -36,7 +36,6 @@ const userReducer = (state = initialState, action) => {
       };
 
     case RESTORE_LOGINDATA:
-      console.log('restore inside reducer', action.data);
       return {
         ...state,
         user: action.data,

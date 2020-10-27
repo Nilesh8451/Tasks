@@ -10,7 +10,7 @@ import DrawerContent from './screens/drawerContent';
 import {connect} from 'react-redux';
 import {signout} from './redux/action/signOutAction';
 import {restoreLoginData} from './redux/action/loginAction';
-import {Alert, AsyncStorage} from 'react-native';
+import {Alert, AsyncStorage, View, Text, ActivityIndicator} from 'react-native';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -25,8 +25,9 @@ const Drawer = createDrawerNavigator();
  */
 
 function App({user, signout, restoreData}) {
+  const [loadingUserPrevData, setLoadingUserPrevData] = useState(true);
+
   logoutHandler = () => {
-    // console.log('User is trying to logout');
     Alert.alert('Warning!', 'Are you sure you want to signout', [
       {
         text: 'NO',
@@ -39,19 +40,16 @@ function App({user, signout, restoreData}) {
     try {
       const user = await AsyncStorage.getItem('userInfo');
       const parseUserData = await JSON.parse(user);
-      console.log('While Fetching Again', parseUserData.token);
       if (user !== null) {
-        console.log('Successfulluy fetch user info', parseUserData);
         restoreData(parseUserData);
       }
-    } catch (error) {
-      // Error saving data
-    }
+    } catch (error) {}
+
+    setLoadingUserPrevData(false);
   };
 
   useEffect(() => {
     restoreUserInfo();
-    console.log('NEw Data', user.token);
   }, []);
 
   createDashboardStack = ({navigation}) => {
@@ -140,27 +138,70 @@ function App({user, signout, restoreData}) {
     );
   };
 
-  return (
+  return loadingUserPrevData === false ? (
     <NavigationContainer>
-      {console.log('Inside Return', user.token)}
       {user.token ? (
         <Drawer.Navigator
           drawerContent={(props) => <DrawerContent {...props} />}>
           <Drawer.Screen
             name="DashboardDrawer"
             component={createDashboardStack}
-            options={{title: 'Dashboard'}}
+            options={{
+              title: 'Dashboard',
+              drawerIcon: ({tintColor}) => (
+                <FontAwesome5
+                  name={'home'}
+                  color={'black'}
+                  solid
+                  size={18}
+                  style={{
+                    // marginRight: 20,
+                    opacity: 0.6,
+                  }}
+                  onPress={() => {
+                    logoutHandler();
+                  }}
+                />
+              ),
+            }}
           />
           <Drawer.Screen
             name="AddFeedbackDrawer"
             component={createAddFeedbackStack}
-            options={{title: 'Add Feedback'}}
+            options={{
+              title: 'Add Feedback',
+              drawerIcon: ({tintColor}) => (
+                <FontAwesome5
+                  name={'plus'}
+                  color={'black'}
+                  solid
+                  size={18}
+                  style={{
+                    // marginRight: 20,
+                    opacity: 0.6,
+                  }}
+                  onPress={() => {
+                    logoutHandler();
+                  }}
+                />
+              ),
+            }}
           />
         </Drawer.Navigator>
       ) : (
         <LoginReg />
       )}
     </NavigationContainer>
+  ) : (
+    <View
+      style={{
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <ActivityIndicator size={'large'} color="blue" />
+    </View>
   );
 }
 

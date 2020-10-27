@@ -7,7 +7,6 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
   ScrollView,
-  Button,
 } from 'react-native';
 import {globalStyle} from '../shared/globalStyle/style';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -100,11 +99,6 @@ function ForgotPassword({navigation}) {
                       </View>
                       <View style={globalStyle.forgotSetPasswordButtonDiv}>
                         <View style={styles.button}>
-                          {/* <Button
-                            title="SUBMIT"
-                            onPress={formikProps.handleSubmit}
-                          /> */}
-
                           <CustomButton
                             color="red"
                             disabled={false}

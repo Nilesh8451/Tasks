@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  Button,
   Keyboard,
   TouchableWithoutFeedback,
   ActivityIndicator,
@@ -17,9 +16,7 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import {login} from '../redux/action/loginAction';
 import {globalStyle} from '../shared/globalStyle/style';
-
 import {connect} from 'react-redux';
-import axios from 'axios';
 import CustomButton from '../shared/customButton';
 
 const loginSchema = yup.object({
@@ -65,9 +62,7 @@ function Login({user, isLoading, error, login, navigation}) {
             initialValues={{email: '', password: ''}}
             validationSchema={loginSchema}
             onSubmit={(values, action) => {
-              // console.log('Call The Login APi');
               login(values);
-              // console.log('Inside Login', user);
             }}>
             {(formikProps) => (
               <View style={globalStyle.mainDiv}>
@@ -125,10 +120,6 @@ function Login({user, isLoading, error, login, navigation}) {
 
                     <View style={globalStyle.buttonDiv}>
                       <View style={globalStyle.button}>
-                        {/* <Button
-                        title="Login"
-                        onPress={formikProps.handleSubmit}
-                      /> */}
                         <CustomButton
                           color="red"
                           disabled={false}
@@ -137,12 +128,6 @@ function Login({user, isLoading, error, login, navigation}) {
                         />
                       </View>
                       <View style={[globalStyle.button]}>
-                        {/* <Button
-                        title="Registration"
-                        color="black"
-                        onPress={() => navigation.navigate('Registration')}
-                      /> */}
-
                         <CustomButton
                           color="#2B7DE9"
                           disabled={false}
