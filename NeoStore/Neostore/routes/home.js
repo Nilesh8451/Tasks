@@ -10,7 +10,6 @@ import {
   ImageBackground,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
-import {Rating, AirbnbRating} from 'react-native-ratings';
 import LottieView from 'lottie-react-native';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -54,7 +53,7 @@ function Home({navigation}) {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 1000);
   }, []);
 
   if (isLoading) {
@@ -161,7 +160,7 @@ function Home({navigation}) {
               <Text style={{fontSize: 18}}>Popular Products</Text>
               <TouchableWithoutFeedback
                 onPress={() => {
-                  navigation.navigate('ProductDrawer');
+                  navigation.navigate('ViewProduct');
                   console.log('clicked on view all');
                 }}>
                 <Text style={{fontSize: 17, marginTop: 10}}>View All</Text>

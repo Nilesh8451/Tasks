@@ -6,6 +6,7 @@ import FlatButton from '../shared/button';
 import CustomModal from '../shared/modal';
 import Toast from 'react-native-simple-toast';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 function ProductDetail({navigation, route}) {
   const product = route.params.product;
@@ -75,14 +76,14 @@ function ProductDetail({navigation, route}) {
               </Swiper>
             </View>
             <View style={styles.productContent}>
-              <Text style={{fontSize: 28}}>{product.product_name}</Text>
+              <Text style={{fontSize: 25}}>{product.product_name}</Text>
 
               <Text style={{fontSize: 18, marginTop: 10}}>
                 Product Category - <Text>Bed</Text>
               </Text>
               <Text
                 style={{
-                  fontSize: 22,
+                  fontSize: 20,
                   fontWeight: 'bold',
                   marginTop: 10,
                   color: '#EF5B3E',
@@ -121,8 +122,16 @@ function ProductDetail({navigation, route}) {
           </View>
         </View>
       </ScrollView>
-      <View
-        style={{
+
+      <TouchableWithoutFeedback
+        onPress={() => {
+          Toast.show(
+            `${product.product_name} Added To Cart Successfully`,
+            Toast.LONG,
+          );
+          navigation.pop();
+        }}
+        containerStyle={{
           position: 'absolute',
           backgroundColor: '#2874F0',
           // width: '100%',
@@ -153,12 +162,9 @@ function ProductDetail({navigation, route}) {
               // marginRight: 25,
             }
           }
-          onPress={() => {
-            Toast.show('Item Added To Cart Successfully', Toast.LONG);
-            navigation.pop();
-          }}
         />
-      </View>
+      </TouchableWithoutFeedback>
+
       <View
         style={{
           // height: 65,

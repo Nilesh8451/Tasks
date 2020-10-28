@@ -4,6 +4,8 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Home from '../routes/home';
 import {View, Text} from 'react-native';
 import Cart from '../routes/cart';
+import ViewProduct from '../routes/viewProduct';
+import ProductDetail from '../routes/productDetail';
 const Stack = createStackNavigator();
 
 function HomeStack({navigation}) {
@@ -86,12 +88,35 @@ function HomeStack({navigation}) {
         name="Cart"
         component={Cart}
         options={{
+          headerTintColor: 'white',
           headerStyle: {
             backgroundColor: '#2874F0',
             // borderBottomWidth: 0,
             elevation: 0,
           },
+        }}
+      />
 
+      <Stack.Screen
+        name="ViewProduct"
+        component={ViewProduct}
+        options={{
+          title: 'Products',
+          headerStyle: {backgroundColor: '#2874F0'},
+          headerTintColor: 'white',
+          headerLeft: () => (
+            <FontAwesome5
+              name={'arrow-left'}
+              color="white"
+              size={20}
+              style={{
+                marginLeft: 20,
+              }}
+              onPress={() => {
+                navigation.navigate('Home');
+              }}
+            />
+          ),
           headerRight: () => (
             <View
               style={{
@@ -108,6 +133,7 @@ function HomeStack({navigation}) {
                 }}
                 onPress={() => {
                   // logoutHandler();
+                  navigation.navigate('Cart');
                 }}
               />
               <View
@@ -136,6 +162,16 @@ function HomeStack({navigation}) {
             </View>
           ),
         }}
+      />
+
+      <Stack.Screen
+        name="ProductDetail"
+        component={ProductDetail}
+        options={({route}) => ({
+          title: route.params.product_name,
+          headerStyle: {backgroundColor: '#2874F0'},
+          headerTintColor: 'white',
+        })}
       />
     </Stack.Navigator>
   );

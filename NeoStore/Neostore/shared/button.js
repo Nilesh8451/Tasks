@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   button: {
     marginVertical: 2,
     borderRadius: 8,
-    paddingVertical: 12,
+    paddingVertical: 11,
     paddingHorizontal: 10,
   },
   buttonText: {

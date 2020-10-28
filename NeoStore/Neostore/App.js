@@ -5,7 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import LoginStack from './screens/loginStack';
 import RegisterStack from './screens/registrationStack';
 import HomeStack from './screens/homeStack';
-import ViewProductStack from './screens/viewProductStack';
+import ProfileStack from './screens/profileStack';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -13,7 +13,7 @@ const Drawer = createDrawerNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="HomeDrawer">
+      <Drawer.Navigator initialRouteName="ProfileDrawer">
         <Drawer.Screen
           name="LoginDrawer"
           component={LoginStack}
@@ -30,9 +30,9 @@ function App() {
           options={{title: 'Home'}}
         />
         <Drawer.Screen
-          name="ProductDrawer"
-          component={ViewProductStack}
-          options={{title: 'Products'}}
+          name="ProfileDrawer"
+          component={ProfileStack}
+          options={{title: 'MY Account'}}
         />
       </Drawer.Navigator>
     </NavigationContainer>
